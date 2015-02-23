@@ -1,0 +1,87 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/QuotationInfoServ")
+public class QuotationInfoServ extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public QuotationInfoServ() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+
+		String datePrepared = request.getParameter("datePrepared");
+		String refNum = request.getParameter("refNum");
+		String product = request.getParameter("product");
+		String dateEstShip = request.getParameter("dateEstShip");
+		String customer = request.getParameter("customer");
+		String dmsnPacked = request.getParameter("dmsnPacked");
+		
+		String shipFrom = request.getParameter("shipFrom");
+		String shipTo = request.getParameter("shipTo");
+		String destnCoun = request.getParameter("destnCoun");
+		String weiPacked = request.getParameter("weiPacked");
+		String payTerms = request.getParameter("payTerms");
+		String cubePacked = request.getParameter("cubePacked");
+		String transMode = request.getParameter("transMode");
+		
+		String totalSell = request.getParameter("totalSell");
+		String specExPack = request.getParameter("specExPack");
+		String SEP = request.getParameter("SEP");
+		String SEPby = request.getParameter("SEPby");
+		String inlandFrei = request.getParameter("inlandFrei");
+		String ILFT = request.getParameter("ILFT");
+		String ILFTby = request.getParameter("ILFTby");
+		
+		String interFrei = request.getParameter("interFrei");
+		String ITFT = request.getParameter("ITFT");
+		String destnCoun = request.getParameter("destnCoun");
+		String weiPacked = request.getParameter("weiPacked");
+		String payTerms = request.getParameter("payTerms");
+		String cubePacked = request.getParameter("cubePacked");
+		String transMode = request.getParameter("transMode");
+		
+		
+
+		out.println("<h1> Your Information from Server: </h1>");
+		out.println(" <b> Name :</b> " + firstName + " " + lastName);
+		out.println("<br>");
+		out.println("<b>Sex :</b>  " + sex);
+		out.println("<br>");
+		out.println("<b>Address :</b>  " + address);
+		out.println("<br>");
+		out.println("<b>Province :</b> " + province);
+		out.println("<br>");
+		out.println("<b>Telephone :</b>  " + phone);
+		out.println("<br>");
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+}
