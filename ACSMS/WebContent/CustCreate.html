@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style2
+        {
+        }
+        .auto-style6
+        {
+            width: 154px;
+        }
+        .auto-style8
+        {
+        }
+        .auto-style9
+        {
+            width: 271px;
+        }
+        .auto-style10
+        {
+            width: 270px;
+        }
+        .auto-style11
+        {
+            height: 24px;
+        }
+        #txtFName
+        {
+            width: 245px;
+        }
+        #txtCompany
+        {
+            width: 677px;
+        }
+        #txtEmail
+        {
+            width: 677px;
+        }
+        #txtEmailConf
+        {
+            width: 677px;
+        }
+        #txtStreet
+        {
+            width: 245px;
+        }
+        #txtLName
+        {
+            width: 245px;
+        }
+        #txtCountry
+        {
+            width: 245px;
+        }
+        #txtCity
+        {
+            width: 245px;
+        }
+        #txtPosCod
+        {
+            width: 245px;
+        }
+        #txtPhone
+        {
+            width: 245px;
+        }
+    </style>
+    
+</head>
+<body>
+    <form id="frmCustCreate" runat="server" onsubmit="return doSave()" action="#" method="post">
+    <div>
+    
+        If you want to participate and get notified per e-mail please register:</div>
+
+    <p class="table">
+        <table class="table">
+            <tr>
+                <td class="auto-style11">Title<span class="star">*</span>:</td>
+                <td colspan="3" class="auto-style11">
+                    <select id="combTitle" name="combTitle">
+                        <option selected="selected">Mr.</option>
+                        <option>Miss</option>
+                        <option>Mrs.</option>
+                        <option>Ms.</option>
+                        <option>Dr.</option>                        
+                    </select></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">First Name<span class="star">*</span>:</td>
+                <td class="auto-style10">                    
+                    <input id="txtFName" name="txtFName" type="text"/></td>
+                <td class="auto-style6">Last Name<span class="star">*</span>:</td>
+                <td class="auto-style9">
+                    <input id="txtLName" name="txtLName" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Company:</td>
+                <td class="auto-style8" colspan="3">
+                    <input id="txtCompany" name="Company" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Street:</td>
+                <td class="auto-style10">
+                    <input id="txtStreet" name="txtStreet" type="text" /></td>
+                <td class="auto-style6">City:</td>
+                <td class="auto-style9">
+                    <input id="txtCity" name="txtCity" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Province:</td>
+                <td class="auto-style10">
+                    <select id="combProvince" name="combProvince">
+                        <option>AB</option>
+                        <option>BC</option>
+                        <option>MB</option>
+                        <option>NB</option>
+                        <option>NL</option>
+                        <option>NS</option>
+                        <option>NT</option>
+                        <option>NU</option>
+                        <option selected="selected">ON</option>
+                        <option>PE</option>
+                        <option>QC</option>
+                        <option>SK</option>
+                        <option>YT</option>
+                    </select></td>
+                <td class="auto-style6">Postal Code:</td>
+                <td class="auto-style9">
+                    <input id="txtPosCod" name="txtPosCod" type="text"/></td>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Country:</td>
+                <td class="auto-style10">
+                    <input id="txtCountry" name="txtCountry" type="text"/></td>
+                </td>
+                <td class="auto-style6">Phone</td>
+                <td class="auto-style9">
+                    <input id="txtPhone" name="txtPhone" type="text"/></td>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Email<span class="star">*</span>:</td>
+                <td colspan="3">
+                    <input id="txtEmail" name="txtEmail" type="text"/></td>
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Email Confirmation<span class="star">*</span>:</td>
+                <td colspan="3">
+                    <input id="txtEmailConf" name="txtEmailConf" type="text"/></td>
+                    </td>
+            </tr>
+            <tr>
+                <td class="instruction" colspan="4">All fields marked with an asterick (<span class="star">*</span>) are required.</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td class="btnRegister">
+                    <input id="submit" type="submit" name="submit" value="Register Now" />
+                </td>
+                <td>
+                    <input id="Reset1" type="reset" name="reset" value="Clear Form" />
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </p>
+    </form>
+
+    <script src="resources/scripts/Validation.js"></script>
+    </body>
+</html>
