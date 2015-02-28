@@ -36,7 +36,7 @@ public class QuotationDao {
 	 */
 	public void setStatement(Statement statement) throws Exception {
 		connection=new ConnectionPool();
-		this.statement = connection.getConnect();;
+		this.statement = connection.getStatement();
 	}
 
 

@@ -11,7 +11,7 @@ public class ConnectionPoolTest {
 		ConnectionPool tset=new ConnectionPool();
 		try {
 			
-			Statement statement = tset.getConnect();
+			Statement statement = tset.getStatement();
 		      // Result set get the result of the SQL query
 		      ResultSet resultSet = statement
 		          .executeQuery("select * from acsms.quotation");
