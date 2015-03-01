@@ -4,6 +4,7 @@
 package com.acsms.org.dao;
 
 import java.sql.Statement;
+import java.util.Random;
 
 import com.acsms.org.vo.QuotationVO;
 
@@ -39,6 +40,14 @@ public class QuotationDao {
 		this.statement = connection.getStatement();
 	}
 
+	private	String generateReferenceNo(){	
+		 Random randomGenerator = new Random();
+		 int randomInt = randomGenerator.nextInt(10000);
+		 String refNumber="QTN"+String.valueOf(randomInt);
+		return null;
+		
+	}
+	
 
 	public void createNewQuote() {
 		// Database Code
