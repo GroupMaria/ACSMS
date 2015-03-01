@@ -52,8 +52,6 @@ public class OrderDetailsDao {
 		OrderDetails.setShippingFrom("CA");
 		
 		
-		
-
 		ResultSet rs=null;
 		try {
 		

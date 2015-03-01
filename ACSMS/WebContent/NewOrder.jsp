@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<form action="">
-<input type="submit">Search</input>
-<input type="submit">Search</input>
+<form class="form-horizontal" action="OrderDetailsBA" method="post">
+ <input type="text" class="form-control" id="QuotationId" name="QuotationId">
+ <input type="submit" class="form-control" id="TotalExportquotation" name="TotalExportquotation">   
 </form>
 
 </body>
