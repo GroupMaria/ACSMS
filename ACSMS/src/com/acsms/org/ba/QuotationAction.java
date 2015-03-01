@@ -80,6 +80,7 @@ public class QuotationAction extends HttpServlet {
 		quotation.setOtherCharge1Name(request.getParameter("OtherCharge1Name"));
 		quotation.setOtherCharge2(request.getParameter("OtherCharge2"));
 		quotation.setOtherCharge2Name(request.getParameter("OtherCharge2Name"));
+		//TODO: Should write the logic for the total export value
 		quotation.setTotalExportquotation("");
 
 		QuotationDao quoteDao = new QuotationDao(quotation);

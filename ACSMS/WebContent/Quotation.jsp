@@ -194,6 +194,7 @@
 		   <label for="customer" class="col-sm-4 control-label">Customer</label>
 		   <div class="col-sm-8">
 			 <input type="text" class="form-control" id="customer" name="customer">
+			 <input type="button" class="btn btn-default" id="checkCustomer" name="chkCustomer"></input>
 		  </div>
 		</div>
 		<div class="form-group">

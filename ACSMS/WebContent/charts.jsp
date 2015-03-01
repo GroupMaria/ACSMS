@@ -159,7 +159,7 @@
                         <a href="charts.jsp"><i class="fa fa-fw fa-bar-chart-o"></i> Order Dashboard</a>
                     </li>
                     <li>
-                        <a href="Quotation.html"><i class="fa fa-fw fa-table"></i> Quotation</a>
+                        <a href="Quotation.jsp"><i class="fa fa-fw fa-table"></i> Quotation</a>
                     </li>
                     <li>
                         <a href="NewOrder.jsp"><i class="fa fa-fw fa-edit"></i> Order</a>
