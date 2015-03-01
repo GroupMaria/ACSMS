@@ -3,6 +3,7 @@ package com.acsms.org.ba;
 import java.io.IOException;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.acsms.org.dao.OrderDetailsDao;
+import com.acsms.org.vo.OrderDetailsVO;
 /**
  * Servlet implementation class OrderDetailsBA
  */
@@ -32,9 +34,13 @@ public class OrderDetailsBA extends HttpServlet {
 		
 		OrderDetailsDao objOrderDetailsDao=new OrderDetailsDao();
 		
-		ResultSet rsOrderDetails=objOrderDetailsDao.getOrderDetails(Integer.parseInt(quotationId));
+		OrderDetailsVO OrderDetails=objOrderDetailsDao.getOrderDetails(Integer.parseInt(quotationId));
 		
+		request.setAttribute("OrderDetails", OrderDetails);
 		
+		RequestDispatcher view = request.getRequestDispatcher("/Order.jsp");
+		
+		view.forward(request, response);
 	}
 
 }

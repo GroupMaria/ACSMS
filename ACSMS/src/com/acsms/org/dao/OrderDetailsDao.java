@@ -8,14 +8,14 @@ import com.acsms.org.vo.OrderDetailsVO;
 
 public class OrderDetailsDao {
 
-	private OrderDetailsDao OrderDetails;
+	private OrderDetailsVO OrderDetails;
 	private ConnectionPool connection;
 	private Statement statement;
 	
 	public OrderDetailsDao() {
 		
 	}
-	public OrderDetailsDao(OrderDetailsDao OrderDetails) {
+	public OrderDetailsDao(OrderDetailsVO OrderDetails) {
 		this.OrderDetails=OrderDetails;
 	}
 	
@@ -37,7 +37,7 @@ public class OrderDetailsDao {
 
 	
 	
-	public ResultSet getOrderDetails(int quoteId) {
+	public OrderDetailsVO getOrderDetails(int quoteId) {
 
 		ResultSet rs=null;
 		try {
@@ -48,7 +48,7 @@ public class OrderDetailsDao {
 			e.printStackTrace();
 		}
 		
-		return rs;
+		return OrderDetails;
 	}
 
 
