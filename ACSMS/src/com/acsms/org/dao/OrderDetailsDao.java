@@ -38,6 +38,21 @@ public class OrderDetailsDao {
 	
 	
 	public OrderDetailsVO getOrderDetails(int quoteId) {
+		
+		OrderDetails=new OrderDetailsVO();
+		OrderDetails.setCustomer("Evlyn");
+		OrderDetails.setDatePrepared("2015-03-08");
+		OrderDetails.setDestinationCountry("CA");
+		OrderDetails.setEstimatedShipDate("2015-03-08");
+		OrderDetails.setPackedCube("12 Ft");
+		OrderDetails.setPackedDimensions("12X45X50");
+		OrderDetails.setPackedWeight("5400lb");
+		OrderDetails.setProduct("Paper");;
+		OrderDetails.setRefNumber("ORD1234");
+		OrderDetails.setShippingFrom("CA");
+		
+		
+		
 
 		ResultSet rs=null;
 		try {
