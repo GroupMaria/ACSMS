@@ -53,11 +53,12 @@ public class QuotationVO {
 	private String OtherCharge2;
 	private String TotalExportquotation;
 
-	DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+	DateFormat format = new SimpleDateFormat("YYYY-MM-dd");
 
-	public Date getDatePrepared() throws ParseException {
+	public String getDatePrepared() throws ParseException {
 
-		return format.parse(DatePrepared);
+		Date date =format.parse(DatePrepared);
+		return format.format(date);
 	}
 
 	public void setDatePrepared(String datePrepared) {

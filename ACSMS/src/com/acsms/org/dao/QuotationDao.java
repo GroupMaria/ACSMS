@@ -13,8 +13,6 @@ import com.acsms.org.vo.QuotationVO;
  *
  */
 public class QuotationDao {
-
-	
 	
 	private QuotationVO quotation;
 	private ConnectionPool connection;
@@ -53,7 +51,7 @@ public class QuotationDao {
 		// Database Code
 		quotation.getCustomer();
 		try {
-			
+			System.out.println(quotation.getCustomer()+quotation.getProduct()+quotation.getDatePrepared());
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
