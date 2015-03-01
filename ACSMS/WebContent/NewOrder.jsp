@@ -8,5 +8,10 @@
 </head>
 <body>
 
+<form action="">
+<input type="submit">Search</input>
+<input type="submit">Search</input>
+</form>
+
 </body>
 </html>
