@@ -38,11 +38,14 @@ public class QuotationDao {
 		this.statement = connection.getStatement();
 	}
 
+	/**
+	 * @return The Generated Reference Number
+	 */
 	private	String generateReferenceNo(){	
 		 Random randomGenerator = new Random();
 		 int randomInt = randomGenerator.nextInt(10000);
 		 String refNumber="QTN"+String.valueOf(randomInt);
-		return null;
+		return refNumber;
 		
 	}
 	
