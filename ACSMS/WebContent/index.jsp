@@ -156,19 +156,19 @@
                         <a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i> Home</a>
                     </li>
                     <li>
-                        <a href="charts.jsp"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="charts.jsp"><i class="fa fa-fw fa-bar-chart-o"></i> Order Dashboard</a>
                     </li>
                     <li>
-                        <a href="Quotation.html"><i class="fa fa-fw fa-table"></i> Quotation</a>
+                        <a href="Quotation.html"><i class="fa fa-fw fa-edit"></i> Quotation</a>
                     </li>
                     <li>
                         <a href="NewOrder.jsp"><i class="fa fa-fw fa-edit"></i> Order</a>
                     </li>
-                    <li><a href="#">Proforma Invoice</a></li>
-					<li><a href="#">Customs Clearance</a></li>
-					<li><a href="#">Airway Bill Certificate</a></li>
-					<li><a href="#">Invoice</a></li>
-					<li><a href="#">Admin</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>
+					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
+					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
+					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
+					<li><a href="#"><i class="fa fa-fw fa-table"></i>Admin</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
