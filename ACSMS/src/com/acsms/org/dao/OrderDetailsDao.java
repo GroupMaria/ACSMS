@@ -37,7 +37,7 @@ public class OrderDetailsDao {
 
 	
 	
-	public OrderDetailsVO getOrderDetails(int quoteId) {
+	public OrderDetailsVO getOrderDetails(String quoteId) {
 		
 		OrderDetails=new OrderDetailsVO();
 		OrderDetails.setCustomer("Evlyn");
@@ -50,6 +50,8 @@ public class OrderDetailsDao {
 		OrderDetails.setProduct("Paper");;
 		OrderDetails.setRefNumber("ORD1234");
 		OrderDetails.setShippingFrom("CA");
+		OrderDetails.setModeofTransport("Air");
+		OrderDetails.setShippingTo("USA");
 		
 		
 		ResultSet rs=null;

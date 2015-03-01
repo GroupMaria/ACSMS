@@ -34,7 +34,7 @@ public class OrderDetailsBA extends HttpServlet {
 		
 		OrderDetailsDao objOrderDetailsDao=new OrderDetailsDao();
 		
-		OrderDetailsVO OrderDetails=objOrderDetailsDao.getOrderDetails(Integer.parseInt(quotationId));
+		OrderDetailsVO OrderDetails=objOrderDetailsDao.getOrderDetails(quotationId);
 		
 		request.setAttribute("OrderDetails", OrderDetails);
 		
