@@ -14,6 +14,11 @@
     <link href="resources/css/plugins/morris.css" rel="stylesheet">
     <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+     <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="resources/scripts/Quotation.js"></script>
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -193,8 +198,10 @@
 		<div class="form-group">
 		   <label for="customer" class="col-sm-4 control-label">Customer</label>
 		   <div class="col-sm-8">
-			 <input type="text" class="form-control" id="customer" name="customer">
-			 <input type="button" class="btn btn-default" id="checkCustomer" name="chkCustomer"></input>
+			 <input type="text" class="form-control" id="customer" name="customer" style="width: 229px;display:inline">
+			 <button class="btn btn-success btn-number NewCustomer" id="checkCustomer" name="chkCustomer" >
+			 <span class="glyphicon glyphicon-plus"></span>
+			 </button>
 		  </div>
 		</div>
 		<div class="form-group">
@@ -773,5 +780,10 @@
        </div>   
   </div>
 
+<div class="NewCustomerForm">
+
+New customer form
+
+</div>
 </body>
 </html>
