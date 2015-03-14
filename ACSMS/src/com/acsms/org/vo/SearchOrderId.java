@@ -1,6 +1,6 @@
 package com.acsms.org.vo;
 
-public class SearchOrderId<Customer> {
+public class SearchOrderId<Customer> {/*
 	OrderID findCustomerByid(int id){
 		boolean exist=false;
 
@@ -27,4 +27,4 @@ public class SearchOrderId<Customer> {
 
 		}
 
-}
+*/}

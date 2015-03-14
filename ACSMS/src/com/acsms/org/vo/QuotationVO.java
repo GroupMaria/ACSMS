@@ -36,9 +36,25 @@ public class QuotationVO {
 	private String productSellingPrice;
 	private String productSellingPriceQuote;
 	private String sellingPriceQuotedBy;
+	
+	
+	private String fuelAdjustments;
+	private String containerStuffing;
+	private String othersAirFreight;
+	
+
 	private String inlandFreight;
 	private String inlandFreightQuote;
 	private String inlandFreightQuotedBy;
+	private String inlandUnloading;
+	private String inland_Pier_deliver;
+	private String inland_terminal_handle;
+	private String inland_other;
+
+	
+	private String insurance_all_risk;
+	private String insurance_srcc;
+	private String insurance_warrisk;
 	private String inlandFreightothers;
 	private String InternationalFreightQuote1;
 	private String InternationalFreightQuotedBy;
@@ -320,6 +336,87 @@ public class QuotationVO {
 
 	public void setFormat(DateFormat format) {
 		this.format = format;
+	}
+
+	public void setInlandUnloading(String inlandUnloading) {
+		this.inlandUnloading = inlandUnloading;
+	}
+
+	public void setInland_Pier_deliver(String inland_Pier_deliver) {
+		this.inland_Pier_deliver = inland_Pier_deliver;
+	}
+
+	public void setInland_terminal_handle(String inland_terminal_handle) {
+		this.inland_terminal_handle = inland_terminal_handle;
+	}
+
+	public void setInland_other(String inland_other) {
+		this.inland_other = inland_other;
+	}
+
+	public String getInlandUnloading() {
+		return inlandUnloading;
+	}
+
+	public String getInland_Pier_deliver() {
+		return inland_Pier_deliver;
+	}
+
+	public String getInland_terminal_handle() {
+		return inland_terminal_handle;
+	}
+
+	public String getInland_other() {
+		return inland_other;
+	}
+
+	public String getInsurance_all_risk() {
+		return insurance_all_risk;
+	}
+
+	public void setInsurance_all_risk(String insurance_all_risk) {
+		this.insurance_all_risk = insurance_all_risk;
+	}
+
+	public String getInsurance_srcc() {
+		return insurance_srcc;
+	}
+
+	public void setInsurance_srcc(String insurance_srcc) {
+		this.insurance_srcc = insurance_srcc;
+	}
+
+	public String getInsurance_warrisk() {
+		return insurance_warrisk;
+	}
+
+	public void setInsurance_warrisk(String insurance_warrisk) {
+		this.insurance_warrisk = insurance_warrisk;
+	}
+	
+
+	public String getFuelAdjustments() {
+		return fuelAdjustments;
+	}
+
+	public void setFuelAdjustments(String fuelAdjustments) {
+		this.fuelAdjustments = fuelAdjustments;
+	}
+
+	public String getContainerStuffing() {
+		return containerStuffing;
+	}
+
+	public void setContainerStuffing(String containerStuffing) {
+		this.containerStuffing = containerStuffing;
+	}
+
+	public String getOthersAirFreight() {
+		return othersAirFreight;
+	}
+
+	public void setOthersAirFreight(String othersAirFreight) {
+		this.othersAirFreight = othersAirFreight;
 	}
 
 }

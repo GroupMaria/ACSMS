@@ -20,7 +20,7 @@ public class ConnectionPool {
 	// TODO: Once the application loads , the connection should be created by
 	// default
 
-	private Connection getConnect() {
+	public Connection getConnect() {
 		return connect;
 	}
 
