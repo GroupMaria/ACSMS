@@ -169,7 +169,7 @@
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
-					<li><a href="#"><i class="fa fa-fw fa-table"></i>Admin</a></li>
+						<li><a href="NewStaff.html"><i class="fa fa-fw fa-edit"></i>Admin</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
