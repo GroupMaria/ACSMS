@@ -168,7 +168,7 @@
 					<li><a href="#">Customs Clearance</a></li>
 					<li><a href="#">Airway Bill Certificate</a></li>
 					<li><a href="#">Invoice</a></li>
-					<li><a href="#">Admin</a></li>
+					<li><a href="NewStaff.html">Admin</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
