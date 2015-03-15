@@ -24,4 +24,28 @@
       	 $(".NewCustomerForm").dialog("close");
     });
     
+    $(document).on('click', '.addCustomer', function(){ 
+  
+	 $.post('CustomerBA',
+			                {combTitle: $("#combTitle").val(),
+ 								txtFName: $("#txtFName").val(),
+ 								txtLName:$("#txtLName").val() ,
+ 								txtCompany: $("#txtCompany").val(),
+ 								txtStreet: $("#txtStreet").val() ,
+ 								txtCity: $("#txtCity").val() ,
+ 								combProvince: $("#combProvince").val() ,
+ 								txtPosCod: $("#txtPosCod").val(),
+ 								txtCountry: $("#txtCountry").val(),
+ 								txtPhone:  $("#txtPhone").val() ,
+ 								txtEmail: $("#txtEmail").val()
+                              },
+        function(responseText) {
+		   $("#customer").val(responseText); 
+		   $(".NewCustomerForm").dialog("close");
+    });
+
+	 
+    	
+   });
+    
 });

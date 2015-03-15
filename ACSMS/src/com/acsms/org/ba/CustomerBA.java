@@ -32,16 +32,14 @@ public class CustomerBA extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub		
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		
+	
 		String custTitle = request.getParameter("combTitle");
 		String custFName = request.getParameter("txtFName");
 		String custLName = request.getParameter("txtLName");
@@ -54,12 +52,14 @@ public class CustomerBA extends HttpServlet {
 		String custPhone = request.getParameter("txtPhone");
 		String custEmail = request.getParameter("txtEmail");
 		
-		CustomerVO objCustomer =new CustomerVO(custTitle, custFName, custLName, custCompany, custStreet, custCity, custProvince, custPosCod, custCountry, custPhone, custEmail);
-		
-		
+		CustomerVO objCustomer =new CustomerVO(custTitle, custFName, custLName, custCompany, custStreet, custCity, custProvince, custPosCod, custCountry, custPhone, custEmail);		
 		CustomerDao objCustomerDao = new CustomerDao(objCustomer);
 		
-		objCustomerDao.addNewCust();
+//		objCustomerDao.addNewCust();
+			
+		PrintWriter out = response.getWriter();
+		out.println(custTitle);
+		
 	}
 
 }
