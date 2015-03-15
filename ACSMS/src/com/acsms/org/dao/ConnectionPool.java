@@ -17,8 +17,6 @@ public class ConnectionPool {
 	private Connection connect;
 	private Statement statement;
 
-	// TODO: Once the application loads , the connection should be created by
-	// default
 
 	public Connection getConnect() {
 		return connect;

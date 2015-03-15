@@ -1,7 +1,7 @@
 package com.acsms.org.ba;
 
 import java.io.IOException;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,17 +34,40 @@ public class OrderDetailsBA extends HttpServlet {
 			throws ServletException, IOException {
 
 		String quotationId = request.getParameter("QuotationId");
+		OrderDetailsDao objOrderDetailsDao;
+		try {
+			objOrderDetailsDao = new OrderDetailsDao();
+			//TODO: Check whether the Order Id is already generated 
+			boolean checkQuotationId;
+			checkQuotationId = objOrderDetailsDao.checkQuotationId(quotationId);
+			if(checkQuotationId){
+				
+				System.out.println("New Order Id has to be generated");
+				//TODO : else New Order Id has to be generated
+				//objOrderDetailsDao.generateOrderDetails(quotationId);
+				}else{
+					System.out.println("if Order id is already present in the database , then show that the id is generated.");
+				    //TODO : if Order id is already present in the database , then show that the id is generated.
+					OrderDetailsVO OrderDetails = objOrderDetailsDao.getOrderDetails(quotationId);
+					request.setAttribute("OrderDetails", OrderDetails);
+					RequestDispatcher view = request.getRequestDispatcher("/Order.jsp");
 
-		OrderDetailsDao objOrderDetailsDao = new OrderDetailsDao();
+					view.forward(request, response);
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 
-		OrderDetailsVO OrderDetails = objOrderDetailsDao
-				.getOrderDetails(quotationId);
+		
 
-		request.setAttribute("OrderDetails", OrderDetails);
-
-		RequestDispatcher view = request.getRequestDispatcher("/Order.jsp");
-
-		view.forward(request, response);
+		
 	}
 
 }
