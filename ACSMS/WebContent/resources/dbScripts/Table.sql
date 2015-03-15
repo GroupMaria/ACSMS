@@ -47,3 +47,17 @@ Create table customer
 City varchar(40) not null, 
  country varchar(40) not null
 )
+
+
+CREATE TABLE `acsms`.`order` (
+  `transid` INT NOT NULL,
+  `orderid` VARCHAR(45) NOT NULL,
+  `quotationid` VARCHAR(45) NULL,
+  `invoiceid` VARCHAR(45) NULL,
+  `clearanceid` VARCHAR(45) NULL,
+  `awbid` VARCHAR(45) NULL,
+  `userid` VARCHAR(45) NULL,
+  `lasttransdt` DATE NULL,
+  PRIMARY KEY (`transid`, `orderid`));
+  
+  
