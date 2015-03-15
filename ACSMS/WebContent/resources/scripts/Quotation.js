@@ -1,4 +1,9 @@
 ﻿$(document).ready(function () {
+	
+	 $("#txtDatePrepared").datepicker();
+	 $("#EstimatedShipDate").datepicker();
+	 
+	 
     $(".NewCustomer").click(function () {
       
         $(".NewCustomerForm").dialog({
@@ -42,10 +47,36 @@
         function(responseText) {
 		   $("#customer").val(responseText); 
 		   $(".NewCustomerForm").dialog("close");
-    });
-
-	 
-    	
+    }); 	
    });
+      
+    
+    $("#productSellingPrice,#exportPackingPrice,#inlandFreightPrice,#InternationalFreightPrice,#Insurance,#ForwardingFees,#ConsularPrice,#InspectionFees,#BankingCharges,#OtherCharges").change(function() {
+    		  updateTotalCharge();
+      });
+    
+    $("#OtherCharge1,#OtherCharge2").change(function() {
+    	 var total=0;
+    	 total+=$("#OtherCharge1").val().trim().length >0 ?  parseFloat($("#OtherCharge1").val().trim()) : 0;
+    	 total+=$("#OtherCharge2").val().trim().length >0 ?  parseFloat($("#OtherCharge2").val().trim()) : 0;
+    	 $("#OtherCharges").val(total);
+});
+    function updateTotalCharge(){
+    	 var total=0;
+    	 total+=$("#productSellingPrice").val().trim().length >0 ?  parseFloat($("#productSellingPrice").val().trim()) : 0;
+         total+=$("#exportPackingPrice").val().trim().length >0 ?  parseFloat($("#exportPackingPrice").val().trim()) : 0;
+    	 total+=$("#inlandFreightPrice").val().trim().length >0 ?  parseFloat($("#inlandFreightPrice").val().trim()) : 0;
+    	 total+=$("#InternationalFreightPrice").val().trim().length >0 ?  parseFloat($("#InternationalFreightPrice").val().trim()) : 0;
+    	 
+    	 total+=$("#Insurance").val().trim().length >0 ?  parseFloat($("#Insurance").val().trim()) : 0;
+    	 total+=$("#ForwardingFees").val().trim().length >0 ?  parseFloat($("#ForwardingFees").val().trim()) : 0;
+    	 total+=$("#ConsularPrice").val().trim().length >0 ?  parseFloat($("#ConsularPrice").val().trim()) : 0;
+    	 total+=$("#InspectionFees").val().trim().length >0 ?  parseFloat($("#InspectionFees").val().trim()) : 0;
+    	 
+    	 total+=$("#BankingCharges").val().trim().length >0 ?  parseFloat($("#BankingCharges").val().trim()) : 0;
+    	 total+=$("#OtherCharges").val().trim().length >0 ?  parseFloat($("#OtherCharges").val().trim()) : 0;
+    	 
+    	 $("#TotalExportquotation").val(total);
+    }
     
 });

@@ -541,7 +541,7 @@
 		   <td  style="width:25%">
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="productSellingPrice" name="productSellingPrice">    
+				<input type="number" class="form-control" id="productSellingPrice" name="productSellingPrice">    
 			  </div>
 		   </td>
 		   </tr>
@@ -554,7 +554,7 @@
 		    <br/>
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="productSellingPrice" name="productSellingPrice">    
+				<input type="number" class="form-control" id="exportPackingPrice" name="exportPackingPrice">    
 			  </div>
 		   </td>
 		   </tr>
@@ -576,7 +576,7 @@
 		       <br/><br/>
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="inlandFreight " name="inlandFreight">    
+				<input type="number" class="form-control" id="inlandFreightPrice" name="inlandFreightPrice">    
 			  </div>
 		    </td>
 		    </tr>		   
@@ -609,7 +609,7 @@
 		       <br/><br/>
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="inlandFreight " name="inlandFreight">    
+				<input type="number" class="form-control" id="InternationalFreightPrice" name="InternationalFreightPrice">    
 			  </div>
 		   </td>
 		   </tr>	   
@@ -640,7 +640,7 @@
 		       <br/><br/>
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="inlandFreight " name="inlandFreight">    
+				<input type="number" class="form-control" id="Insurance" name="Insurance">    
 			  </div>
 		   </td>
 		   </tr>	   
@@ -668,7 +668,7 @@
 		   <br/><br/>
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="ForwardingFees" name="ForwardingFees">    
+				<input type="number" class="form-control" id="ForwardingFees" name="ForwardingFees">    
 			  </div>
 		   </td>
 		   </tr>		   
@@ -680,7 +680,7 @@
 		   <td  style="width:25%">
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="ConsularPrice" name="ConsularPrice">    
+				<input type="number" class="form-control" id="ConsularPrice" name="ConsularPrice">    
 			  </div>
 		   </td>
 		   </tr>		   
@@ -692,7 +692,7 @@
 		   <td  style="width:25%">
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="InspectionFees" name="InspectionFees">    
+				<input type="number" class="form-control" id="InspectionFees" name="InspectionFees">    
 			  </div>
 		   </td>
 		   </tr>	   
@@ -704,7 +704,7 @@
 		   <td  style="width:25%">
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="BankingCharges" name="BankingCharges">    
+				<input type="number" class="form-control" id="BankingCharges" name="BankingCharges">    
 			  </div>
 		   </td>
 		   </tr>		   
@@ -716,7 +716,7 @@
 		   <td  style="width:25%">
 			   <div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="OtherCharges" name="OtherCharges">    
+				<input type="number" class="form-control" id="OtherCharges" name="OtherCharges">    
 			  </div>
 		   </td>
 		   </tr>
@@ -728,7 +728,7 @@
 					   <br/>
 					   1.<input type="text" id="OtherCharge1Name" class="form-control" name="OtherCharge1Name" placeholder="Other Charge" style="width: 256px; display:inline;margin-left: 24px;"> :
 					   
-							$<input type="text"  class="form-control" id="OtherCharge1" name="OtherCharge1" style="width: 68px; display:inline">    			 
+							$<input type="number"  class="form-control" id="OtherCharge1" name="OtherCharge1" style="width: 68px; display:inline">    			 
 						</td>
 					   </tr>
 						<tr>
@@ -736,7 +736,7 @@
 						<br/>
 					   2.<input type="text"  id="OtherCharge2Name" class="form-control" name="OtherCharge2Name" placeholder="Other Charge" style="width: 256px; display:inline;margin-left: 24px;"> :
 					  
-						   $<input type="text"  id="OtherCharge2" class="form-control" name="OtherCharge2" style="width: 68px; display:inline">    
+						   $<input type="number"  id="OtherCharge2" class="form-control" name="OtherCharge2" style="width: 68px; display:inline">    
 						 
 						</td>
 					  </tr>
