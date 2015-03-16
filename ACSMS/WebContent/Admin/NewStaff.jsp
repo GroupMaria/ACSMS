@@ -1,31 +1,27 @@
-﻿<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<title></title>
-
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="resources/css/sb-admin.css" rel="stylesheet">
-<link href="resources/css/plugins/morris.css" rel="stylesheet">
-<link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<style>
-input[type="checkbox"],input[type="radio"] {
-	margin-right: 5px;
-}
-</style>
-
-    <script src="resources/scripts/Quotation.js"></script>
-    <script src="resources/js/jquery.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/plugins/morris/raphael.min.js"></script>
-    <script src="resources/js/plugins/morris/morris.min.js"></script>
-    <script src="resources/js/plugins/morris/morris-data.js"></script>
-	<script src="resources/scripts/Validation.js"></script>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title></title>
 	
-	
+	<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../resources/css/sb-admin.css" rel="stylesheet">
+	<link href="../resources/css/plugins/morris.css" rel="stylesheet">
+	<link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+ 
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="../resources/js/plugins/morris/raphael.min.js"></script>
+
+	<script src="../resources/scripts/Validation.js"></script>
+	<script src="../resources/scripts/Admin.js"></script>
+
 </head>
 <body>
-
 
 	<div id="wrapper">
 
@@ -135,13 +131,13 @@ input[type="checkbox"],input[type="radio"] {
 			<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
-					<li class="active"><a href="index.jsp"><i
+					<li class="active"><a href="../index.jsp"><i
 							class="fa fa-fw fa-dashboard"></i> Home</a></li>
-					<li><a href="charts.jsp"><i
+					<li><a href="../charts.jsp"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Order Dashboard</a></li>
-					<li><a href="Quotation.jsp"><i class="fa fa-fw fa-edit"></i>
+					<li><a href="../Quotation.jsp"><i class="fa fa-fw fa-edit"></i>
 							Quotation</a></li>
-					<li><a href="NewOrder.jsp"><i class="fa fa-fw fa-edit"></i>
+					<li><a href="../NewOrder.jsp"><i class="fa fa-fw fa-edit"></i>
 							Order</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Proforma
 							Invoice</a></li>
@@ -150,7 +146,23 @@ input[type="checkbox"],input[type="radio"] {
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway
 							Bill Certificate</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
-					<li><a href="NewStaff.html"><i class="fa fa-fw fa-edit"></i>Admin</a></li>
+					<li>
+					
+					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                              <a href="NewStaff.jsp">New Staff</a>
+                            </li>
+                            <li>
+                                <a href="UpdateStaff.jsp">Update Staff</a>
+                            </li>
+                              <li>
+                                <a href="RemoveStaff.jsp">Remove Staff</a>
+                            </li>
+                        </ul>
+                        
+				
+					</li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -161,7 +173,7 @@ input[type="checkbox"],input[type="radio"] {
 			<div class="container-fluid">
 
 				<div class="row" style="height: 560px;">
-					<form id="frmCustCreate" runat="server" action="StaffBA"
+					<form id="frmcreate" runat="server" action="StaffBA"
 						type="post">
 						<div>
 
@@ -193,19 +205,15 @@ input[type="checkbox"],input[type="radio"] {
 								style="display: initial;margin-left: 6px;" />
 							<br /> <br /> 
 							
-							<input id="submit" type="button" name="submit"
-								value="ADD" class="form-control btn-danger addStaff"
-								style="width: 122px; display: initial" /> <input id="Reset1"
-								type="reset" name="reset" value="Clear"
-								class="form-control btn-danger"
-								style="width: 122px; display: initial" />
+						      <button class="btn btn-success btn-danger addStaff" id="addStaff" name="add"  value="ADD" style="width: 122px; display: initial">ADD </button>
+							 
+                              <input id="Reset1" type="reset" name="reset" value="Clear" class="form-control btn-danger" style="width: 122px; display: initial" />
 					</form>
 				</div>
 
 			</div>
 		</div>
 	</div>
-
 
 </body>
 </html>

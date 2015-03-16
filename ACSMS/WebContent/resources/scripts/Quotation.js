@@ -25,7 +25,7 @@
         return false;
     });
     
-    $(".closePopup").click(function () {
+    $(document).on('click', '.closePopup', function(){ 
       	 $(".NewCustomerForm").dialog("close");
     });
     
@@ -79,4 +79,6 @@
     	 $("#TotalExportquotation").val(total);
     }
     
+    
+
 });
