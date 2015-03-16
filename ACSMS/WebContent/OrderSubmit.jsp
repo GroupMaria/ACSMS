@@ -179,16 +179,17 @@
             
             <div class="row" style="height: 560px;">
              
-             <form class="form-horizontal" action="GeneratePDFBA" method="post">
+             <form class="form-horizontal" action="OrderDetailsBA" method="post">
              
-                 <% OrderDetailsVO OrderDetails = (OrderDetailsVO) request.getAttribute("OrderDetails");%>
+                 <% OrderDetailsVO OrderDetails = (OrderDetailsVO) request.getAttribute("NewOrderDetails");%>
 
-                 <h3>Order Details &nbsp;  <input type="submit" class="form-control btn-danger" value="Generate Order PDF" id="TotalExportquotation" name="TotalExportquotation" style="width: 151px; font-weight: bolder; height: 44px;display:inline"> 
+                 <h3>Order Details &nbsp;  <input type="submit" class="form-control btn-danger" value="Generate Order" id="TotalExportquotation" name="TotalExportquotation" style="width: 151px; font-weight: bolder; height: 44px;display:inline"> 
 </h3>          <hr/> <br/>
                  
                  <table><tr>
                  <td>
-                 The Order for the Quotation (<%= OrderDetails.getRefNumber() %>) is already generated.
+                 The Order for the Quotation (<%= OrderDetails.getRefNumber() %>) is not generated yet. 
+                 <br/>
                  
                  <dl class="dl-horizontal">
                  <dt>Reference Number : </dt> <dd> <%= OrderDetails.getRefNumber() %> </dd>

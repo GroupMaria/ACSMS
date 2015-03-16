@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import com.acsms.org.vo.OrderDetailsVO;
@@ -28,7 +31,7 @@ public class OrderDetailsDao {
 				+ quoteId + "'";
 		ResultSet resultSet = statement.executeQuery(selectDataSQL);
 
-		// iterate through the java resultset
+		// iterate through the java result set
 		while (resultSet.next()) {
 			
 			OrderDetails = new OrderDetailsVO();
@@ -54,15 +57,25 @@ public class OrderDetailsDao {
 		// TODO Generate the Order Id
 
 		System.out.println("Record is inserted into DBUSER table!");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		Date date = new Date();
+		System.out.println(); //2014/08/06 15:59:48
 
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(10000);
 		String refNumber = "ORD" + String.valueOf(randomInt);
-
-		String insertTableSQL = "INSERT INTO `acsms`.`order`"
+		String invoiceid = "INV" + String.valueOf(randomInt);
+		String clearanceid = "CLR" + String.valueOf(randomInt);
+		String awbid = "AWB" + String.valueOf(randomInt);
+	
+		//TODO: USER ID GENERATE
+		String userid = "USR" + String.valueOf(randomInt);
+		
+		
+		String insertTableSQL = "INSERT INTO acsms.order"
 				+ "(`transid`,`orderid`,`quotationid`,`invoiceid`,`clearanceid`,`awbid`,`userid`,"
-				+ "`lasttransdt`) VALUES (<{orderid: }>,<{quotationid: }>,<{invoiceid: }>,<{clearanceid: }>,<{awbid: }>,"
-				+ "<{userid: }>,<{lasttransdt: }>)";
+				+ "`lasttransdt`) VALUES (default"+",'"+refNumber+"','"+quotationId+"','"+invoiceid+"','"+
+				clearanceid+"','"+awbid+"','"+ "USR1234"+"','"+dateFormat.format(date)+"')";
 
 		System.out.println(insertTableSQL);
 
@@ -92,7 +105,7 @@ public class OrderDetailsDao {
 			System.out.println("transid" + id);
 		}
 
-		if (id.equals(null)) {
+		if (id ==null) {
 			return true;
 		} else {
 			return false;

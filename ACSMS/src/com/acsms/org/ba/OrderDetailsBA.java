@@ -35,39 +35,42 @@ public class OrderDetailsBA extends HttpServlet {
 
 		String quotationId = request.getParameter("QuotationId");
 		OrderDetailsDao objOrderDetailsDao;
-		try {
-			objOrderDetailsDao = new OrderDetailsDao();
-			//TODO: Check whether the Order Id is already generated 
+
+			try {
+				objOrderDetailsDao = new OrderDetailsDao();
+			
+			// TODO: Check whether the Order Id is already generated
 			boolean checkQuotationId;
 			checkQuotationId = objOrderDetailsDao.checkQuotationId(quotationId);
-			if(checkQuotationId){
-				
+			if (checkQuotationId) {
+
 				System.out.println("New Order Id has to be generated");
-				//TODO : else New Order Id has to be generated
-				//objOrderDetailsDao.generateOrderDetails(quotationId);
-				}else{
-					System.out.println("if Order id is already present in the database , then show that the id is generated.");
-				    //TODO : if Order id is already present in the database , then show that the id is generated.
-					OrderDetailsVO OrderDetails = objOrderDetailsDao.getOrderDetails(quotationId);
-					request.setAttribute("OrderDetails", OrderDetails);
-					RequestDispatcher view = request.getRequestDispatcher("/Order.jsp");
+				// TODO : else New Order Id has to be generated
+				objOrderDetailsDao.generateOrderDetails(quotationId);
+				OrderDetailsVO OrderDetails = objOrderDetailsDao
+						.getOrderDetails(quotationId);
+				request.setAttribute("OrderDetails", OrderDetails);
+				RequestDispatcher submitview = request
+						.getRequestDispatcher("/OrderSubmit.jsp");
+				submitview.forward(request, response);
 
-					view.forward(request, response);
-				}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
+			} else {
+				System.out
+						.println("if Order id is already present in the database , then show that the id is generated.");
+				// TODO : if Order id is already present in the database , then
+				// show that the id is generated.
+				OrderDetailsVO OrderDetails = objOrderDetailsDao
+						.getOrderDetails(quotationId);
+				request.setAttribute("OrderDetails", OrderDetails);
+				RequestDispatcher view = request
+						.getRequestDispatcher("/Order.jsp");
 
-		
-
-		
+				view.forward(request, response);
+			}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 }
