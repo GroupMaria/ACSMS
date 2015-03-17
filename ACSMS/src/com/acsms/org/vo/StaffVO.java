@@ -2,6 +2,7 @@ package com.acsms.org.vo;
 
 public class StaffVO {
 	
+	private String staffid ;
 	private String staffTitle ;
 	private String staffFName;
 	private String staffLName;
@@ -15,9 +16,10 @@ public class StaffVO {
 	}
 
 	// Constructor
-	public StaffVO(String staffTitle, String staffFName, String staffLName,
+	public StaffVO(String staffid,String staffTitle, String staffFName, String staffLName,
 			       String staffPhone, String staffEmail,boolean isAdmin) {
 		super();
+		this.staffid = staffid;
 		this.staffTitle = staffTitle;
 		this.staffFName = staffFName;
 		this.staffLName = staffLName;
@@ -27,15 +29,15 @@ public class StaffVO {
 	}
 	
 	
-	public boolean isAdmin() {
-		return isAdmin;
+	public String getStaffid() {
+		return staffid;
 	}
 
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setStaffid(String staffid) {
+		this.staffid = staffid;
 	}
-
-	// Title
+	
+	
 	public String getstaffTitle() {
 		return staffTitle;
 	}
@@ -43,7 +45,7 @@ public class StaffVO {
 		this.staffTitle = staffTitle;
 	}
 	
-	// First name
+	
 	public String getstaffFName() {
 		return staffFName;
 	}
@@ -51,7 +53,7 @@ public class StaffVO {
 		this.staffFName = staffFName;
 	}
 	
-	// Last name
+	
 	public String getstaffLName() {
 		return staffLName;
 	}
@@ -60,7 +62,6 @@ public class StaffVO {
 	}
 	
 	
-	// Phone
 	public String getstaffPhone() {
 		return staffPhone;
 	}
@@ -68,12 +69,20 @@ public class StaffVO {
 		this.staffPhone = staffPhone;
 	}
 	
-	// Email
+	
 	public String getstaffEmail() {
 		return staffEmail;
 	}
 	public void setstaffEmail(String staffEmail) {
 		this.staffEmail = staffEmail;
+	}
+	
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	
 	

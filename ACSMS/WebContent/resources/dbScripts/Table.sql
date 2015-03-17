@@ -37,7 +37,7 @@ fees_bank double(10,2),
 fees_other1_name varchar(50),
 fees_other1 double(10,2),
 fees_other2_name varchar(50),
-fees_other2 double(10,2))
+fees_other2 double(10,2));
 
 Create table customer
 (cust_id varchar(20) primary key not null,
@@ -46,7 +46,7 @@ Create table customer
  addr_2 varchar(60),
 City varchar(40) not null, 
  country varchar(40) not null
-)
+);
 
 
 CREATE TABLE `acsms`.`order` (
@@ -59,5 +59,15 @@ CREATE TABLE `acsms`.`order` (
   `userid` VARCHAR(45) NULL,
   `lasttransdt` DATE NULL,
   PRIMARY KEY (`transid`, `orderid`));
+  
+  
+CREATE TABLE staff(
+ staff_id varchar(20) primary key not null,
+ staff_name varchar(150) not null,
+ staff_email varchar(150) not null,
+ staff_phone varchar(60) not null,
+ staff_isAdmin tinyint not null
+)
+
   
   

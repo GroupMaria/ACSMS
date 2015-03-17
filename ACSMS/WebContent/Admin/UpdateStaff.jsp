@@ -169,13 +169,12 @@
 			<div class="container-fluid">
 
 				<div class="row" style="height: 560px;">
-					<form id="frmCustCreate" runat="server" action="StaffBA"
-						type="post">
+					<form id="frmCustCreate" runat="server" action="../StaffBA" method="post">
 						<div>
                          <br /> 
                             
                             SEARCH STAFF :  <input id="staffId" name="staffId" type="text"
-								placeholder="STAFF ID" class="form-control"
+								placeholder="STAFF ID" class="form-control staffId"
 								style="width: 122px; display: initial" /> 
 							<input id="submit" type="button" name="searchStaff"
 								value="SEARCH" class="form-control btn-info searchStaff"

@@ -1,9 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
 	<title></title>
 	
 	<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
@@ -173,8 +177,7 @@
 			<div class="container-fluid">
 
 				<div class="row" style="height: 560px;">
-					<form id="frmcreate" runat="server" action="StaffBA"
-						type="post">
+					<form id="frmcreate" runat="server" action="../StaffBA" method="post">
 						<div>
 
 							<h3>NEW STAFF</h3>
@@ -205,7 +208,7 @@
 								style="display: initial;margin-left: 6px;" />
 							<br /> <br /> 
 							
-						      <button class="btn btn-success btn-danger addStaff" id="addStaff" name="add"  value="ADD" style="width: 122px; display: initial">ADD </button>
+						      <input type="submit" class="btn btn-success btn-danger addStaff" id="addStaff" name="add"  value="ADD" style="width: 122px; display: initial" value="ADD"/>
 							 
                               <input id="Reset1" type="reset" name="reset" value="Clear" class="form-control btn-danger" style="width: 122px; display: initial" />
 					</form>

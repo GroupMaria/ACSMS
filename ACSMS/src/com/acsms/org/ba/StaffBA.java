@@ -13,6 +13,8 @@ import com.acsms.org.dao.CustomerDao;
 import com.acsms.org.dao.StaffDao;
 import com.acsms.org.vo.CustomerVO;
 import com.acsms.org.vo.StaffVO;
+import com.sun.org.apache.xml.internal.resolver.helpers.Debug;
+import org.json.JSONObject;
 
 /**
  * Servlet implementation class StaffBA
@@ -28,12 +30,19 @@ public class StaffBA extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+	
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+	
+		String staffId="";
 		
+		if(request.getParameter("staffId") != null)
+		{
+		    staffId = request.getParameter("staffId");
+		}
 		String Title = request.getParameter("combTitle");
 		String FName = request.getParameter("txtFName");
 		String LName = request.getParameter("txtLName");
@@ -41,25 +50,60 @@ public class StaffBA extends HttpServlet {
 		String Email = request.getParameter("txtEmail");
 		boolean isAdmin = Boolean.parseBoolean(request.getParameter("isAdmin"));
 		
-		StaffVO staff =new StaffVO(Title, FName, LName, Phone, Email,isAdmin);		
-		StaffDao objstaffDao = new StaffDao(staff);
+		StaffVO staff =new StaffVO(staffId,Title, FName, LName, Phone, Email,isAdmin);		
+		StaffDao objstaffDao = null;
 		
-		String Action=request.getParameter("Action");
+		try {
+			objstaffDao = new StaffDao(staff);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		if(Action == "Add")
+		String Action=request.getParameter("toaction");
+		
+		if(Action.equals("Search"))
 		{
+			staff= objstaffDao.getStaffByID(staffId);
+		
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			String StrStaff=constructJSON(staff);
+			out.println(StrStaff);
+		}
+	
+		if(Action.equals("Add"))
+		{
+			PrintWriter out = response.getWriter();
+			out.println("Add");
 		    objstaffDao.addStaff();
 		}
 		
-		if(Action == "Update")
+		if(Action.equals("Update"))
 		{
+			PrintWriter out = response.getWriter();
+			out.println("Update");
 		    objstaffDao.updateStaff();
 		}
 
-		if(Action == "Delete")
+		if(Action.equals("Delete"))
 		{
-		   objstaffDao.deleteStaff();
+		    objstaffDao.deleteStaff();
 		}
 	}
 
+	private String constructJSON(StaffVO staff) {
+		
+		JSONObject jsStaff = new JSONObject();
+		jsStaff.put("staffId", staff.getStaffid());
+		jsStaff.put("combTitle",staff.getstaffTitle());
+		jsStaff.put("txtFName", staff.getstaffFName());
+		jsStaff.put("txtLName",staff.getstaffLName());
+		jsStaff.put("txtPhone",staff.getstaffPhone());
+		jsStaff.put("txtEmail", staff.getstaffEmail());
+		jsStaff.put("isAdmin", staff.isAdmin());
+
+		return jsStaff.toString();
+	}
+
+	
 }
