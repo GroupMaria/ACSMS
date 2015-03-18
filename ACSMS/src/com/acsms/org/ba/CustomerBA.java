@@ -32,14 +32,14 @@ public class CustomerBA extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		
 		String custTitle = request.getParameter("combTitle");
 		String custFName = request.getParameter("txtFName");
 		String custLName = request.getParameter("txtLName");
@@ -52,10 +52,16 @@ public class CustomerBA extends HttpServlet {
 		String custPhone = request.getParameter("txtPhone");
 		String custEmail = request.getParameter("txtEmail");
 		
-		CustomerVO objCustomer =new CustomerVO(custTitle, custFName, custLName, custCompany, custStreet, custCity, custProvince, custPosCod, custCountry, custPhone, custEmail);		
-		CustomerDao objCustomerDao = new CustomerDao(objCustomer);
+		CustomerVO objCustomer = new CustomerVO(custTitle, custFName, custLName, custCompany, custStreet, custCity, custProvince, custPosCod, custCountry, custPhone, custEmail);		
+		CustomerDao objCustomerDao = null;
+		try {
+			objCustomerDao = new CustomerDao(objCustomer);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-//		objCustomerDao.addNewCust();
+		objCustomerDao.addNewCust();
 			
 		PrintWriter out = response.getWriter();
 		out.println(custTitle);
