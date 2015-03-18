@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 import com.acsms.org.dao.CustomerDao;
 import com.acsms.org.vo.CustomerVO;
+import com.acsms.org.vo.StaffVO;
 
 /**
  * Servlet implementation class CustomerBA
@@ -64,11 +67,18 @@ public class CustomerBA extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
-			
+		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(Custid);
-		
+		String StrStaff = constructJSON(Custid);
+		out.println(StrStaff);
+	
+	}
+	
+	private String constructJSON(String Custid) {
+
+		JSONObject jsStaff = new JSONObject();
+		jsStaff.put("Custid", Custid);
+		return jsStaff.toString();
 	}
 
 }

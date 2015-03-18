@@ -29,25 +29,35 @@
       	 $(".NewCustomerForm").dialog("close");
     });
     
-    $(document).on('click', '.addCustomer', function(){ 
+    $(document).on('click', '.addCustomer', function(e){ 
   
-	 $.post('CustomerBA',
-			                {combTitle: $("#combTitle").val(),
- 								txtFName: $("#txtFName").val(),
- 								txtLName:$("#txtLName").val() ,
- 								txtCompany: $("#txtCompany").val(),
- 								txtStreet: $("#txtStreet").val() ,
- 								txtCity: $("#txtCity").val() ,
- 								combProvince: $("#combProvince").val() ,
- 								txtPosCod: $("#txtPosCod").val(),
- 								txtCountry: $("#txtCountry").val(),
- 								txtPhone:  $("#txtPhone").val() ,
- 								txtEmail: $("#txtEmail").val()
-                              },
-        function(responseText) {
-		   $("#customer").val(responseText); 
-		   $(".NewCustomerForm").dialog("close");
-    }); 	
+    	$.ajax({
+		    type: 'POST', 
+		    url: 'CustomerBA',
+		    dataType: 'JSON',
+		    data: {     combTitle: $("#combTitle").val(),
+					    txtFName: $("#txtFName").val(),
+						txtLName:$("#txtLName").val() ,
+						txtCompany: $("#txtCompany").val(),
+						txtStreet: $("#txtStreet").val() ,
+						txtCity: $("#txtCity").val() ,
+						combProvince: $("#combProvince").val() ,
+						txtPosCod: $("#txtPosCod").val(),
+						txtCountry: $("#txtCountry").val(),
+						txtPhone:  $("#txtPhone").val() ,
+						txtEmail: $("#txtEmail").val()
+            },
+		    success: function(data) {
+		    	  $("#customer").val(data.Custid); 
+				   $(".NewCustomerForm").dialog("close");	
+		    },
+		    error: function(data) {
+		        alert(data.responseText);
+		    }
+		});
+		
+		e.preventDefault();
+
    });
       
     

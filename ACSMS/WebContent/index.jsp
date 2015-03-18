@@ -167,7 +167,7 @@
                     <li><a href="#"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
-					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
+					<li><a href="TransportBooking.jsp"><i class="fa fa-fw fa-edit"></i>Transport Booking</a></li>
 					<li>
 					
 					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
