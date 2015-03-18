@@ -14,6 +14,7 @@ import com.acsms.org.dao.StaffDao;
 import com.acsms.org.vo.CustomerVO;
 import com.acsms.org.vo.StaffVO;
 import com.sun.org.apache.xml.internal.resolver.helpers.Debug;
+
 import org.json.JSONObject;
 
 /**
@@ -22,88 +23,108 @@ import org.json.JSONObject;
 @WebServlet("/StaffBA")
 public class StaffBA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-    public StaffBA() {
-        super();
-    
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	
+	public StaffBA() {
+		super();
+
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	
-		String staffId="";
-		
-		if(request.getParameter("staffId") != null)
-		{
-		    staffId = request.getParameter("staffId");
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		boolean isAdmin = false;
+		String staffId = "";
+
+		if (request.getParameter("staffId") != null) {
+			staffId = request.getParameter("staffId");
 		}
 		String Title = request.getParameter("combTitle");
 		String FName = request.getParameter("txtFName");
 		String LName = request.getParameter("txtLName");
 		String Phone = request.getParameter("txtPhone");
 		String Email = request.getParameter("txtEmail");
-		boolean isAdmin = Boolean.parseBoolean(request.getParameter("isAdmin"));
-		
-		StaffVO staff =new StaffVO(staffId,Title, FName, LName, Phone, Email,isAdmin);		
+		if (request.getParameter("isAdmin") != null) {
+			isAdmin = request.getParameter("isAdmin").equals("on");
+		}
+
+		StaffVO staff = new StaffVO(staffId, Title, FName, LName, Phone, Email,
+				isAdmin);
 		StaffDao objstaffDao = null;
-		
+
 		try {
 			objstaffDao = new StaffDao(staff);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		String Action=request.getParameter("toaction");
-		
-		if(Action.equals("Search"))
-		{
-			staff= objstaffDao.getStaffByID(staffId);
-		
+
+		String Action = request.getParameter("toaction");
+
+		if (Action.equals("Search")) {
+			
+			try {
+			staff = objstaffDao.getStaffByID(staffId);
+
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
-			String StrStaff=constructJSON(staff);
+			String StrStaff = constructJSON(staff);
 			out.println(StrStaff);
-		}
-	
-		if(Action.equals("Add"))
-		{
-			PrintWriter out = response.getWriter();
-			out.println("Add");
-		    objstaffDao.addStaff();
-		}
-		
-		if(Action.equals("Update"))
-		{
-			PrintWriter out = response.getWriter();
-			out.println("Update");
-		    objstaffDao.updateStaff();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
-		if(Action.equals("Delete"))
-		{
-		    objstaffDao.deleteStaff();
+		if (Action.equals("Add")) {
+			try {
+				
+				objstaffDao.addStaff();
+				PrintWriter out = response.getWriter();
+				out.println("Staff Added sucessfully");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		if (Action.equals("Update")) {
+			try {
+				
+				objstaffDao.updateStaff();
+				PrintWriter out = response.getWriter();
+				out.println("Staff Details Updated sucessfully");
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (Action.equals("Delete")) {
+			try {
+				objstaffDao.deleteStaff();
+				PrintWriter out = response.getWriter();
+				out.println("Staff Details Removed sucessfully");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	private String constructJSON(StaffVO staff) {
-		
+
 		JSONObject jsStaff = new JSONObject();
 		jsStaff.put("staffId", staff.getStaffid());
-		jsStaff.put("combTitle",staff.getstaffTitle());
+		jsStaff.put("combTitle", staff.getstaffTitle());
 		jsStaff.put("txtFName", staff.getstaffFName());
-		jsStaff.put("txtLName",staff.getstaffLName());
-		jsStaff.put("txtPhone",staff.getstaffPhone());
+		jsStaff.put("txtLName", staff.getstaffLName());
+		jsStaff.put("txtPhone", staff.getstaffPhone());
 		jsStaff.put("txtEmail", staff.getstaffEmail());
 		jsStaff.put("isAdmin", staff.isAdmin());
 
 		return jsStaff.toString();
 	}
 
-	
 }
