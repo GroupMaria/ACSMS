@@ -218,7 +218,7 @@
 		<div class="form-group">
 		   <label for="txtDatePrepared" class="col-sm-4 control-label">Date Prepared</label>
 		   <div class="col-sm-8">
-			 <input type="date" class="form-control" id="txtDatePrepared" name="DatePrepared">
+			 <input type="text" class="form-control" id="txtDatePrepared" name="DatePrepared">
 		  </div>
 		</div>
 		<div class="form-group">

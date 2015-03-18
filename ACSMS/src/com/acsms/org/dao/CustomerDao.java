@@ -1,6 +1,7 @@
 package com.acsms.org.dao;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
@@ -47,18 +48,11 @@ public class CustomerDao {
 	}
 	
 	// Insert into Database
-	public void addNewCust(){
-		
-		// Try to connect to database
-		ConnectionPool DB=new ConnectionPool();
-		try {
-			
-			// Create a statement
-			//Statement stmt = DB.getStatement();			
-		      
-			// Create an SQL insert string
+	public String addNewCust() throws SQLException{
+	
+		String CustID= generateCustomerNo();
 	        String insertCustDataSQL = "INSERT INTO Customer VALUES ("
-	        		+"\'" + generateCustomerNo()+"\',"				// Customer ID
+	        		+"\'" + CustID +"\',"				// Customer ID
 	        		+"\'" + objCustomer.getCustTitle()+"\',"		// Title
 	        		+"\'" + objCustomer.getCustFName() +" "+ objCustomer.getCustLName()+"\',"		// Name
 	        		+"\'" + objCustomer.getCustCompany()+"\',"		// Company
@@ -70,15 +64,10 @@ public class CustomerDao {
 	        		+"\'" + objCustomer.getCustPhone()+"\',"		// Phone
 	        		+"\'" + objCustomer.getCustEmail()+"\'"		// Email
 	        		+ ");";
-	        // Execute the string and pass it into SQL
+	       
 	        statement.executeUpdate(insertCustDataSQL);
-		    
-		    // Close the connection  
-	        //DB.close();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		return CustID;
 	}
 
 }

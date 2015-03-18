@@ -53,18 +53,21 @@ public class CustomerBA extends HttpServlet {
 		String custEmail = request.getParameter("txtEmail");
 		
 		CustomerVO objCustomer = new CustomerVO(custTitle, custFName, custLName, custCompany, custStreet, custCity, custProvince, custPosCod, custCountry, custPhone, custEmail);		
+		
+		String Custid="";
 		CustomerDao objCustomerDao = null;
 		try {
 			objCustomerDao = new CustomerDao(objCustomer);
+			Custid= objCustomerDao.addNewCust();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		objCustomerDao.addNewCust();
+		
 			
 		PrintWriter out = response.getWriter();
-		out.println(custTitle);
+		out.println(Custid);
 		
 	}
 
