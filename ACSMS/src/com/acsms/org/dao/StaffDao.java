@@ -2,6 +2,7 @@ package com.acsms.org.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
@@ -36,13 +37,8 @@ public class StaffDao {
 		return custNumber;
 	}
 	
-	public StaffVO getStaffByID(String Id) {
-		
-		objStaff=new StaffVO(); 
-		
-		try {
+	public StaffVO getStaffByID(String Id) throws SQLException {
 			
-					
 	        String selectDataSQL = "SELECT * FROM staff WHERE staff_id='"+Id+ "'";
 
      	    ResultSet rs = statement.executeQuery(selectDataSQL);
@@ -54,13 +50,10 @@ public class StaffDao {
      			objStaff.setstaffLName(rs.getString("staff_name"));  
      			objStaff.setstaffPhone(rs.getString("staff_phone"));  
      			objStaff.setstaffEmail(rs.getString("staff_email"));  
-     			objStaff.setAdmin(Boolean.parseBoolean(rs.getString("staff_isAdmin")));  	     
+     			objStaff.setAdmin(rs.getBoolean("staff_isAdmin"));  	     
   			}
      	    
 	  
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		if(objStaff.getstaffTitle() == null || objStaff.getstaffTitle().equals(""))
 		{
@@ -75,63 +68,39 @@ public class StaffDao {
 		return objStaff;
 }
 	
-	public void addStaff() {
+	public void addStaff() throws SQLException {
 	
-				ConnectionPool DB=new ConnectionPool();
-				try {
-					
-					Statement stmt = DB.getStatement();			
-			        String insertStaffDataSQL = "INSERT INTO staff VALUES ("
-			        		+"'" + generateStaffNo()+"'"				
-			        		+"'" + objStaff.getstaffTitle()+"',"		
-			        		+"'" + objStaff.getstaffFName() +" "+ objStaff.getstaffLName() +"',"		
-			        		+"'" + objStaff.getstaffPhone()+"',"		
-			        		+"'" + objStaff.getstaffEmail()+"',"	
-			        		+"'" + objStaff.isAdmin()+"'"
-			        		+ ")";			  
-			        stmt.executeUpdate(insertStaffDataSQL);		
-			        DB.close();
-			        
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+	        String insertStaffDataSQL = "INSERT INTO staff VALUES ("
+	        		+"'" + generateStaffNo()+"',"				
+//	        		+"'" + objStaff.getstaffTitle()+"',"		
+	        		+"'" + objStaff.getstaffFName() +" "+ objStaff.getstaffLName() +"',"		
+	        		+"'" + objStaff.getstaffPhone()+"',"		
+	        		+"'" + objStaff.getstaffEmail()+"',"	
+	        		+ objStaff.isAdmin()
+	        		+ ")";			  
+	        statement.executeUpdate(insertStaffDataSQL);		
+
 	}
 
-	public void updateStaff() {
+	public void updateStaff() throws SQLException {
+	
 		
-		ConnectionPool DB=new ConnectionPool();
-		try {
-			
-			Statement stmt = DB.getStatement();			
-	        String StaffDataSQL = "UPDATE staff VALUES ("       				
-	        		+"staff_id='" + objStaff.getstaffTitle()+"',"		
+			String StaffDataSQL = "UPDATE staff SET "       					
 	        		+"staff_name='" + objStaff.getstaffFName() +" "+ objStaff.getstaffLName() +"',"		
 	        		+"staff_email='" + objStaff.getstaffPhone()+"',"		
 	        		+"staff_phone='" + objStaff.getstaffEmail()+"',"	
-	        		+"staff_isAdmin='" + objStaff.isAdmin()+"\' WHERE staff_id='"+ objStaff.getStaffid() +"'"
-	        		+ ")";			  
-	        stmt.executeUpdate(StaffDataSQL);		
-	        DB.close();
-	        
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	        		+"staff_isAdmin=" + objStaff.isAdmin()+" WHERE staff_id='"+ objStaff.getStaffid() +"'";			  
+	        statement.executeUpdate(StaffDataSQL);		
+	
 	}
 
-	public void deleteStaff() {
+	public void deleteStaff() throws SQLException {
 	
-		ConnectionPool DB=new ConnectionPool();
-		try {
 			
-			Statement stmt = DB.getStatement();			
 	        String insertStaffDataSQL = "DELETE FROM staff " +
-	        		 "WHERE staff_id='"+ objStaff.getStaffid() +"'";	  
-	        stmt.executeUpdate(insertStaffDataSQL);		
-	        DB.close();
-	        
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	        		 "WHERE staff_id='"+ objStaff.getStaffid() +"'";	
+	        statement.executeUpdate(insertStaffDataSQL);	        
+		
 	}	
 	
 }
