@@ -1,11 +1,16 @@
 package com.acsms.org.ba;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.acsms.org.dao.CustomerDao;
+import com.acsms.org.dao.OrderClosingDAO;
+import com.acsms.org.vo.OrderVO;
 
 /**
  * Servlet implementation class OrderClosingBA
@@ -34,6 +39,20 @@ public class OrderClosingBA extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String orderid = request.getParameter("Order Id");
+		OrderVO objOrder = new OrderVO(orderid);
+		
+		 //objOrderDao = null;
+		try {
+			OrderClosingDAO objOrderDao = new OrderClosingDAO(objOrder);
+			objOrderDao.searchOrder();
+			//orderid= objCustomerDao.addNewCust();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
 	}
 
 }

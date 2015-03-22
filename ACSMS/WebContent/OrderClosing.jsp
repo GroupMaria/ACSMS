@@ -28,7 +28,7 @@
             
             <div class="row" style="height: 560px;">
              
-             <form class="form-horizontal" action="OrderDetailsBA" method="post">
+             <form class="form-horizontal" runat="server" action="OrderClosingBA" method="post">
              
              <h3>Close Order</h3><hr/> <br/>
               <div class="form-group">
