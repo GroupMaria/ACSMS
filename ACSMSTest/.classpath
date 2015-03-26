@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="/ACSMS"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/annotations-api.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/catalina-ha.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/catalina-tribes.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/catalina.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/ecj-4.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/el-api.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/jasper-el.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-api.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-coyote.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-i18n-es.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-i18n-fr.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-i18n-ja.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-jdbc.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-util.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat7-websocket.jar"/>
+	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/websocket-api.jar"/>
+	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/itextpdf-5.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/json-rpc-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/mysql-connector-java-5.1.6.jar"/>
+	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/standard-1.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/xmlworker-5.5.0.jar"/>
+	<classpathentry kind="lib" path="/ACSMS/WebContent/resources/lib/mysql-connector-java-5.1.6.jar"/>
+	<classpathentry kind="lib" path="/ACSMS/WebContent/resources/lib/standard-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/ACSMS/WebContent/resources/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="/ACSMS/WebContent/WEB-INF/lib/json-rpc-1.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
