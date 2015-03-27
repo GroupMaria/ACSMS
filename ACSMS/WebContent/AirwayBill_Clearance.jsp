@@ -7,6 +7,36 @@
 <title>Customs Clearance</title>
 </head>
 <body>
-
+	<h1>CUSTOMS CLEARANCE CHECKLIST</h1>
+	<h2>SHIP FROM CANADA FORMS</h2>
+	<form>
+	<table>
+	<tr>
+		<th>Bill of Lading</th>
+		<td>
+			<input type="checkbox">
+		</td>
+	</tr>
+	<tr>
+		<th>Commercial Invoice</th>
+		<td>
+			<input type="checkbox">
+		</td>
+	</tr>
+	<tr>
+		<th>Certificate of Origin</th>
+		<td>
+			<input type="checkbox">
+		</td>
+	</tr>
+	<tr>
+		<th>Canada Customs Invoice</th>
+		<td>
+			<input type="checkbox">
+		</td>
+	</tr>
+	</table>
+	<input type="button" value="Update"/>
+	</form>
 </body>
 </html>
