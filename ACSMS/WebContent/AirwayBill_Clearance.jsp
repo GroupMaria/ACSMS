@@ -1,42 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Customs Clearance</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Customs Clearance</title>
+	<script>
+            function checkBox(chk) {
+                if ( chk == 1 ) {
+                    //return checked;
+                    out.print("checked");
+                }
+                else{
+                	out.print("");
+                }
+            }
+            //"javascript:checkBox('${row.canada_customs_invoice}')"
+        </script>
 </head>
 <body>
 	<h1>CUSTOMS CLEARANCE CHECKLIST</h1>
 	<h2>SHIP FROM CANADA FORMS</h2>
-	<form>
+	<c:if test="${ empty param.orderid}">
+            <c:redirect url="OrderSearch_Clearance.jsp" >
+                <c:param name="errMsg" value="Please Enter an Order ID" />
+            </c:redirect> 
+    </c:if>
+    
+    <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
+        				url="jdbc:mysql://localhost/acsms" 
+        				user="root" password="admin"/>
+        				
+    <sql:query dataSource="${dbsource}" var="result">
+        	SELECT * FROM custom_clearance WHERE orderid = ?
+        	<sql:param value="${param.orderid}"/>
+    </sql:query>
+	<form action="Update_Clearance.jsp" method="post">
 	<table>
+	<c:forEach var="row" items="${result.rows}"> 	
+		<input type="hidden" name="orderid" value="${row.orderid}"/>	
 	<tr>
 		<th>Bill of Lading</th>
 		<td>
-			<input type="checkbox">
+			<input type="text" name="bill_of_lading" value="${row.bill_of_lading}"/>
 		</td>
-	</tr>
+	</tr>	
 	<tr>
 		<th>Commercial Invoice</th>
 		<td>
-			<input type="checkbox">
+			<input type="text" name="commercial_invoice" value="${row.commercial_invoice}">
 		</td>
 	</tr>
 	<tr>
 		<th>Certificate of Origin</th>
 		<td>
-			<input type="checkbox">
+			<input type="text" name="certificate_of_origin" value="${row.certificate_of_origin}">
 		</td>
 	</tr>
 	<tr>
 		<th>Canada Customs Invoice</th>
 		<td>
-			<input type="checkbox">
+			<input type="text" name="canada_customs_invoice" value="${row.canada_customs_invoice}">
 		</td>
 	</tr>
+	</c:forEach>
 	</table>
-	<input type="button" value="Update"/>
+	<input type="submit" value="Update"/>
 	</form>
 </body>
 </html>
