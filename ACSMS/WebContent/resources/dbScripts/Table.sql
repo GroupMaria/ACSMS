@@ -109,10 +109,7 @@ CREATE TABLE `order` (
   `commercial_invoice` INT NOT NULL,
   `certificate_of_origin` INT NOT NULL,
   `canada_customs_invoice` INT NOT NULL,
-  PRIMARY KEY (`clearance_id`),
-  INDEX `orderid_idx` (`orderid`),
-    FOREIGN KEY (`orderid`)
-    REFERENCES `acsms`.`order` (`orderid`)
+  PRIMARY KEY (`clearance_id`)  
     );
 
   
