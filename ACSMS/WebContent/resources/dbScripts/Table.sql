@@ -69,5 +69,13 @@ CREATE TABLE staff(
  staff_isAdmin tinyint not null
 )
 
+create table transport_booking1 
+( carr_booking_id varchar(50), 
+carr_name varchar(50), 
+invoice_id varchar(50), 
+transport_booking varchar(50), 
+transport_name varchar(50), 
+pick_up_dest varchar(100), 
+Drop_dest varchar(50)) 
   
   
