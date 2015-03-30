@@ -7,6 +7,16 @@
 <html>
     <head>
         <title>JINSERT Operation</title>
+        <script>
+            function checkBox(chk) {
+                if ( chk=="on" ) {
+                    return "1";
+                }
+                else{
+                	return "0";
+                }
+            }
+        </script>
     </head>
     <body>
     	        
@@ -20,10 +30,38 @@
         								certificate_of_origin = ?,
         								canada_customs_invoice = ?
         	WHERE orderid = ?;
-        	<sql:param value="${param.bill_of_lading}"/>
-        	<sql:param value="${param.commercial_invoice}"/> 
-        	<sql:param value="${param.certificate_of_origin}"/>
-        	<sql:param value="${param.canada_customs_invoice}"/>
+        	<c:choose>
+        		<c:when test="${param._bill_of_lading=='on'}">
+        			<sql:param value="1"/>
+        		</c:when>
+        		<c:otherwise>
+        			<sql:param value="0"/>
+        		</c:otherwise>
+        	</c:choose>
+        	<c:choose>
+        		<c:when test="${param._commercial_invoice=='on'}">
+        			<sql:param value="1"/>
+        		</c:when>
+        		<c:otherwise>
+        			<sql:param value="0"/>
+        		</c:otherwise>
+        	</c:choose>
+        	<c:choose>
+        		<c:when test="${param._certificate_of_origin=='on'}">
+        			<sql:param value="1"/>
+        		</c:when>
+        		<c:otherwise>
+        			<sql:param value="0"/>
+        		</c:otherwise>
+        	</c:choose>
+        	<c:choose>
+        		<c:when test="${param._canada_customs_invoice=='on'}">
+        			<sql:param value="1"/>
+        		</c:when>
+        		<c:otherwise>
+        			<sql:param value="0"/>
+        		</c:otherwise>
+        	</c:choose>
         	<sql:param value="${param.orderid}"/>        	       
         </sql:update>
         <c:if test="${result>=1}">
