@@ -40,7 +40,7 @@
   
                <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                   &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="TotalExportquotation" name="TotalExportquotation" style="width: 141px;">
+                   &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="OrderIdSearch" name="OrderIdSearch" style="width: 141px;">
                   </div>
               </div>
   
