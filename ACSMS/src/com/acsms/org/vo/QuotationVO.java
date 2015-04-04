@@ -55,7 +55,9 @@ public class QuotationVO {
 	private String insurance_all_risk;
 	private String insurance_srcc;
 	private String insurance_warrisk;
-	private String inlandFreightothers;
+	private String inlandFreightothers1;
+
+	private String inlandFreightothers2;
 	private String InternationalFreightQuote1;
 	private String InternationalFreightQuotedBy;
 	private String ForwardingFees;
@@ -70,12 +72,21 @@ public class QuotationVO {
 	private String TotalExportquotation;
 
 	DateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+	
 
 	public String getDatePrepared() throws ParseException {
 
-		Date date =format.parse(DatePrepared);
-		return format.format(date);
+		return DatePrepared;
 	}
+	
+	public String getInlandFreightothers2() {
+		return inlandFreightothers2;
+	}
+
+	public void setInlandFreightothers2(String inlandFreightothers2) {
+		this.inlandFreightothers2 = inlandFreightothers2;
+	}
+
 
 	public void setDatePrepared(String datePrepared) {
 		DatePrepared = datePrepared;
@@ -225,12 +236,12 @@ public class QuotationVO {
 		this.inlandFreightQuotedBy = inlandFreightQuotedBy;
 	}
 
-	public String getInlandFreightothers() {
-		return inlandFreightothers;
+	public String getInlandFreightothers1() {
+		return inlandFreightothers1;
 	}
 
-	public void setInlandFreightothers(String inlandFreightothers) {
-		this.inlandFreightothers = inlandFreightothers;
+	public void setInlandFreightothers1(String inlandFreightothers1) {
+		this.inlandFreightothers1 = inlandFreightothers1;
 	}
 
 	public String getInternationalFreightQuote1() {

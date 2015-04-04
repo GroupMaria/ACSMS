@@ -619,7 +619,7 @@
 				   <input type="checkbox" name="Unloading" value="Unloading">Unloading &nbsp;&nbsp;
                    <input type="checkbox" name="PierDelivery" value="PierDelivery">Pier Delivery &nbsp;&nbsp;
 				   <input type="checkbox" name="TerminalHandling" value="TerminalHandling">Terminal Handling  &nbsp;&nbsp;
-				   <input type="checkbox" name="Others" value="Others">Others  <input id="inlandFreightothers" name="inlandFreightothers" style="width:117px" type="text"> 	
+				   <input type="checkbox" name="Others" value="Others">Others  <input id="inlandFreightothers1" name="inlandFreightothers1" style="width:117px" type="text"> 	
 				    </div>
 				  </div>
 		   </td>
@@ -650,7 +650,7 @@
 				   Air Freight Includes : 
 				   <input type="checkbox" name="FuelAdjustments" value="FuelAdjustments">Fuel Adjustments &nbsp;&nbsp;
                    <input type="checkbox" name="ContainerStuffing" value="ContainerStuffing">Container Stuffing &nbsp;&nbsp;
-				   <input type="checkbox" name="OthersAirFreight" value="OthersAirFreight">Others  <input id="inlandFreightothers" name="inlandFreightothers" style="width:117px" type="text"> 	
+				   <input type="checkbox" name="OthersAirFreight" value="OthersAirFreight">Others  <input id="inlandFreightothers2" name="inlandFreightothers2" style="width:117px" type="text"> 	
 				    </div>
 				  </div>
 		       </td>
