@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="/ACSMS"/>
+	<classpathentry exported="true" kind="src" path="/ACSMS"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
@@ -28,12 +28,6 @@
 	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat-util.jar"/>
 	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/tomcat7-websocket.jar"/>
 	<classpathentry kind="lib" path="C:/ApacheTomcat/lib/websocket-api.jar"/>
-	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/itextpdf-5.5.0.jar"/>
-	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/json-rpc-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/mysql-connector-java-5.1.6.jar"/>
-	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/standard-1.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/GitLocal/ACSMS/WebContent/WEB-INF/lib/xmlworker-5.5.0.jar"/>
 	<classpathentry kind="lib" path="/ACSMS/WebContent/resources/lib/mysql-connector-java-5.1.6.jar"/>
 	<classpathentry kind="lib" path="/ACSMS/WebContent/resources/lib/standard-1.1.2.jar"/>
 	<classpathentry kind="lib" path="/ACSMS/WebContent/resources/lib/jstl-1.2.jar"/>
