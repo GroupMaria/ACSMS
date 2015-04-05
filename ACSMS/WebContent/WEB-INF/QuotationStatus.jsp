@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form action="QuotationAction" method="post">
+<form action="Airwaybill" method="post">
 
 <div class="col-lg-4">
                                 
