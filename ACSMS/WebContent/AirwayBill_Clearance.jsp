@@ -7,19 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Customs Clearance</title>
-	<script>
-            function checkBox(chk) {
-                if ( chk == 1 ) {
-                    //return checked;
-                    out.print("checked");
-                }
-                else{
-                	out.print("");
-                }
-            }
-            //"javascript:checkBox('${row.canada_customs_invoice}')"
-        </script>
+	<title>Customs Clearance</title>	
 </head>
 <body>
 	<h1>CUSTOMS CLEARANCE CHECKLIST</h1>
@@ -27,6 +15,11 @@
 	<c:if test="${ empty param.orderid}">
             <c:redirect url="OrderSearch_Clearance.jsp" >
                 <c:param name="errMsg" value="Please Enter an Order ID" />
+            </c:redirect> 
+    </c:if>
+    <c:if test="${ empty param.quotationstatus}">
+            <c:redirect url="QuotationStatus_Clearance.jsp" >
+                <c:param name="errMsg" value="Quotaion Stus" />
             </c:redirect> 
     </c:if>
     
@@ -41,29 +34,59 @@
 	<form action="Update_Clearance.jsp" method="post">
 	<table>
 	<c:forEach var="row" items="${result.rows}"> 	
-		<input type="hidden" name="orderid" value="${row.orderid}"/>	
+		<input type="hidden" name="orderid" value="${row.orderid}"/>
+		
+		
 	<tr>
 		<th>Bill of Lading</th>
 		<td>
-			<input type="text" name="bill_of_lading" value="${row.bill_of_lading}"/>
+			<c:choose>
+				<c:when test="${row.bill_of_lading == '1'}">
+					<input type="checkbox" name="_bill_of_lading" checked/>   					  						
+				</c:when>
+				<c:otherwise>
+					<input type="checkbox" name="_bill_of_lading" />
+				</c:otherwise>
+			</c:choose>		
 		</td>
 	</tr>	
 	<tr>
 		<th>Commercial Invoice</th>
 		<td>
-			<input type="text" name="commercial_invoice" value="${row.commercial_invoice}">
+			<c:choose>
+				<c:when test="${row.commercial_invoice == '1'}">
+					<input type="checkbox" name="_commercial_invoice" checked/>   					  						
+				</c:when>
+				<c:otherwise>
+					<input type="checkbox" name="_commercial_invoice" />
+				</c:otherwise>
+			</c:choose>									
 		</td>
 	</tr>
 	<tr>
 		<th>Certificate of Origin</th>
 		<td>
-			<input type="text" name="certificate_of_origin" value="${row.certificate_of_origin}">
+			<c:choose>
+				<c:when test="${row.certificate_of_origin == '1'}">
+					<input type="checkbox" name="_certificate_of_origin" checked/>   					  						
+				</c:when>
+				<c:otherwise>
+					<input type="checkbox" name="_certificate_of_origin" />
+				</c:otherwise>
+			</c:choose>	
 		</td>
 	</tr>
 	<tr>
 		<th>Canada Customs Invoice</th>
 		<td>
-			<input type="text" name="canada_customs_invoice" value="${row.canada_customs_invoice}">
+			<c:choose>
+				<c:when test="${row.canada_customs_invoice == '1'}">
+					<input type="checkbox" name="_canada_customs_invoice" checked/>   					  						
+				</c:when>
+				<c:otherwise>
+					<input type="checkbox" name="_canada_customs_invoice" />
+				</c:otherwise>
+			</c:choose>		
 		</td>
 	</tr>
 	</c:forEach>

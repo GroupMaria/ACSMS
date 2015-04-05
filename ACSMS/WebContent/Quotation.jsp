@@ -171,6 +171,9 @@
                         <a href="Quotation.html"><i class="fa fa-fw fa-edit"></i> Quotation</a>
                     </li>
                     <li>
+                        <a href="QuotationStatus.html"><i class="fa fa-fw fa-edit"></i> QuotationStaus</a>
+                    </li>
+                    <li>
                         <a href="NewOrder.jsp"><i class="fa fa-fw fa-edit"></i> Order</a>
                     </li>
                     <li><a href="#"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>

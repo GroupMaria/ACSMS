@@ -20,7 +20,7 @@
 			<tbody>
 				<tr>
 					<td><label>Order ID</label></td>
-					<td><input type="text" name="orderid" /></td>
+					<td><input type="text" name="orderid"/></td>
 				</tr>
 
 				<tr>
