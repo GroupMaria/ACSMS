@@ -1,5 +1,6 @@
 package com.acsms.org.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -53,6 +54,32 @@ public class CustomerDao {
 		String CustID= generateCustomerNo();
 	        String insertCustDataSQL = "INSERT INTO Customer VALUES ("
 	        		+"\'" + CustID +"\',"				// Customer ID
+	        		+"\' ?" +"\',"		// Title
+	        		+"\' ?" +" "+ "?\',"		// Name
+	        		+"\' ?" + "\',"		// Company
+	        		+"\' ?" + "\',"		// Street
+	        		+"\' ?" + "\',"			// City
+	        		+"\' ?" + "\',"		// Province
+	        		+"\' ?" + "\',"		// Postal Code
+	        		+"\' ?" + "\',"		// Country
+	        		+"\' ?" + "\',"		// Phone
+	        		+"\' ?" + "\'"		// Email
+	        		+ ");";
+	        		
+	        PreparedStatement pstmtInsertCust = connect.prepareStatement(insertCustDataSQL);
+	        
+	        pstmtInsertCust.setString(1, objCustomer.getCustTitle());
+	        pstmtInsertCust.setString(2, objCustomer.getCustFName());
+	        pstmtInsertCust.setString(3, objCustomer.getCustLName());
+	        pstmtInsertCust.setString(4, objCustomer.getCustCompany());
+	        pstmtInsertCust.setString(5, objCustomer.getCustStreet());
+	        pstmtInsertCust.setString(6, objCustomer.getCustCity());
+	        pstmtInsertCust.setString(7, objCustomer.getCustProvince());
+	        pstmtInsertCust.setString(8, objCustomer.getCustPosCod());
+	        pstmtInsertCust.setString(9, objCustomer.getCustCountry());
+	        pstmtInsertCust.setString(10, objCustomer.getCustPhone());
+	        pstmtInsertCust.setString(11, objCustomer.getCustEmail());
+	        		/*
 	        		+"\'" + objCustomer.getCustTitle()+"\',"		// Title
 	        		+"\'" + objCustomer.getCustFName() +" "+ objCustomer.getCustLName()+"\',"		// Name
 	        		+"\'" + objCustomer.getCustCompany()+"\',"		// Company
@@ -64,7 +91,7 @@ public class CustomerDao {
 	        		+"\'" + objCustomer.getCustPhone()+"\',"		// Phone
 	        		+"\'" + objCustomer.getCustEmail()+"\'"		// Email
 	        		+ ");";
-	       
+	        		*/
 	        statement.executeUpdate(insertCustDataSQL);
 
 		return CustID;
