@@ -182,8 +182,11 @@
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
 			     	<li>
 					
-					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
+					<a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
+						    <li>
+                                <a href="Admin/ListStaffs.jsp">View Staffs</a>
+                            </li> 
                             <li>
                               <a href="Admin/NewStaff.jsp">New Staff</a>
                             </li>

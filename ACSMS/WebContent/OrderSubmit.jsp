@@ -167,7 +167,21 @@
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
-						<li><a href="NewStaff.html"><i class="fa fa-fw fa-edit"></i>Admin</a></li>
+				    	 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
+                       <ul id="demo" class="collapse">
+						    <li>
+                                <a href="Admin/ListStaffs.jsp">View Staffs</a>
+                            </li> 
+                            <li>
+                              <a href="Admin/NewStaff.jsp">New Staff</a>
+                            </li>
+                            <li>
+                                <a href="Admin/UpdateStaff.jsp">Update Staff</a>
+                            </li>
+                              <li>
+                                <a href="Admin/RemoveStaff.jsp">Remove Staff</a>
+                            </li>
+                        </ul>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

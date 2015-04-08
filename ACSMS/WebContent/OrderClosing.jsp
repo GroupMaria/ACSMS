@@ -159,16 +159,25 @@
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
-			    		<li>
+					<li><a href="Admin/OrderStatus.jsp">Order Status</a></li>
+					<li>
 					
-					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
+						 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
+						    <li>
+                                <a href="Admin/ListStaffs.jsp">View Staffs</a>
+                            </li> 
                             <li>
-                              <a href="Admin/OrderStatus.jsp">Order Status</a>
-                            </li>     
+                              <a href="Admin/NewStaff.jsp">New Staff</a>
+                            </li>
+                            <li>
+                                <a href="Admin/UpdateStaff.jsp">Update Staff</a>
+                            </li>
+                              <li>
+                                <a href="Admin/RemoveStaff.jsp">Remove Staff</a>
+                            </li>
                         </ul>
-                        
-				
+                      
 					</li>
                 </ul>
             </div>
@@ -193,9 +202,9 @@
   
                <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-<<<<<<< HEAD
+
                    &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="OrderId" name="OrderId" style="width: 141px;">
-=======
+
                    &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="OrderIdSearch" name="OrderIdSearch" style="width: 141px;">
                   </div>
               </div>
@@ -203,7 +212,6 @@
   <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
                    &nbsp;   <input type="submit" value="Status" class="form-control btn-primary" id="TotalExportquotation" name="TotalExportquotation" style="width: 141px;">
->>>>>>> ee61f6c15f2642c07a4dbe33830ce5db54afe1af
                   </div>
               </div>
   

@@ -39,7 +39,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp">ACSMS</a>
+				<a class="navbar-brand" href="../index.jsp">ACSMS</a>
 			</div>
 			<!-- Top Menu Items -->
 			<ul class="nav navbar-right top-nav">
@@ -154,6 +154,9 @@
 					
 					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
+                            <li>
+                                <a href="ListStaffs.jsp">View Staffs</a>
+                            </li> 
                             <li>
                               <a href="NewStaff.jsp">New Staff</a>
                             </li>

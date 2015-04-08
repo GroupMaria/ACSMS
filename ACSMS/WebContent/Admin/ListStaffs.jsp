@@ -4,9 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title></title>
-
+<tittle>Staff List</tittle>
 <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="../resources/css/sb-admin.css" rel="stylesheet">
 <link href="../resources/css/plugins/morris.css" rel="stylesheet">
@@ -16,11 +14,11 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="../resources/js/bootstrap.min.js"></script>
     <script src="../resources/js/plugins/morris/raphael.min.js"></script>
-	<script src="../resources/scripts/Validation.js"></script>
 	<script src="../resources/scripts/Admin.js"></script>
+	
 </head>
 <body>
-	<div id="wrapper">
+<div id="wrapper">
 
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -147,7 +145,7 @@
 					
 					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
-                            <li>
+                           <li>
                                 <a href="ListStaffs.jsp">View Staffs</a>
                             </li> 
                             <li>
@@ -173,45 +171,25 @@
 			<div class="container-fluid">
 
 				<div class="row" style="height: 560px;">
-					<form id="frmremove" runat="server" action="StaffBA"
-						type="post">
+					<form id="frmCustCreate" runat="server" action="../StaffBA" method="post">
 						<div>
                          <br /> 
                             
-                            SEARCH STAFF :  <input id="staffId" name="staffId" type="text"
-								placeholder="STAFF ID" class="form-control"
-								style="width: 122px; display: initial" /> 
-							<input id="submit" type="button" name="searchStaff"
-								value="SEARCH" class="form-control btn-info searchStaff"
-								style="width: 122px; display: initial" /> <br /> <br /> 
+                           <h3 class='stafflist'> STAFF LIST :</h3>
 						<HR/>	
-							<select id="combTitle" name="combTitle" class="form-control"
-								style="width: 75px; display: initial">
-								<option selected="selected">Mr.</option>
-								<option>Miss</option>
-								<option>Mrs.</option>
-								<option>Ms.</option>
-								<option>Dr.</option>
-							</select> <input id="txtFName" name="txtFName" type="text"
-								placeholder="First Name" class="form-control"
-								style="width: 122px; display: initial" /> <input id="txtLName"
-								name="txtLName" type="text" placeholder="Last Name"
-								class="form-control" style="width: 122px; display: initial" /> <br />
-							<br /> <input id="txtPhone" name="txtPhone" type="text"
-								placeholder="Phone" class="form-control"
-								style="width: 122px; display: initial" />
-							<br /> <br /> <input id="txtEmail"
-								name="txtEmail" type="text" placeholder="Email"
-								class="form-control" style="width: 122px; display: initial" /> <br />
-							<br /> 
-							
-							<b>ADMIN </b> <input id="isAdmin" name="isAdmin" type="checkbox"
-								style="display: initial;margin-left: 6px;" />
-							<br /> <br /> 
-							
-							<input id="submit" type="button" name="submit"
-								value="DELETE" class="form-control btn-warning removeStaff"
-								style="width: 122px; display: initial" />
+					    <table class="table staffs">
+    <thead>
+      <tr>
+        <th>STAFF ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>PHONE</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
 					</form>
 				</div>
 

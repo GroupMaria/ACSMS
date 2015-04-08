@@ -19,6 +19,12 @@
     <link href="resources/css/plugins/morris.css" rel="stylesheet">
     <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+	<script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/plugins/morris/raphael.min.js"></script>
+    <script src="resources/js/plugins/morris/morris.min.js"></script>
+    <script src="resources/js/plugins/morris/morris-data.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -170,7 +176,10 @@
 					<li>
 					
 					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                       <ul id="demo" class="collapse">
+						    <li>
+                                <a href="Admin/ListStaffs.jsp">View Staffs</a>
+                            </li> 
                             <li>
                               <a href="Admin/NewStaff.jsp">New Staff</a>
                             </li>
@@ -181,7 +190,6 @@
                                 <a href="Admin/RemoveStaff.jsp">Remove Staff</a>
                             </li>
                         </ul>
-                        
 				
 					</li>
                 </ul>
@@ -238,12 +246,7 @@
       </div>
      </div>
 
-    <script src="resources/js/jquery.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/plugins/morris/raphael.min.js"></script>
-    <script src="resources/js/plugins/morris/morris.min.js"></script>
-    <script src="resources/js/plugins/morris/morris-data.js"></script>
-
+   
 
 
 </body>
