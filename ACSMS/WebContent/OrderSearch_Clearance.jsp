@@ -198,33 +198,32 @@
             <div class="container-fluid">
             
             <div class="row" style="height: 560px;">
+		
+			  
 	<form action="AirwayBill_Clearance.jsp" method="post">
-		<table>
-			<thead>
-				<tr>
-					<th>Please Insert The Order ID</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><label>Order ID</label></td>
-					<td><input type="text" name="orderid"/></td>
-				</tr>
-
-				<tr>
-					<td><input type="submit" value="Search" /></td>
-					<td><input type="reset" name="Reset" /></td>
-				</tr>
-			</tbody>
-		</table>
+		
+					<h3> Order Search</h3> <hr/>
+			
+			        <div class="form-group">
+    			   <label for="inputEmail3" class="col-sm-1 control-label">Order ID</label>
+   				    <div class="col-sm-11">
+     			 		<input type="text" class="form-control" id="orderid" name="orderid" style="width: 213px;">
+    				</div>
+ 				 </div>
+				 
+			  <br/><br/><br/><br/>
+               <div class="form-group">
+                  <div class="col-sm-offset-1 col-sm-10">
+                   &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="TotalExportquotation" name="TotalExportquotation" style="width: 141px; display: inline">
+				   
+				    &nbsp;   &nbsp;  <input type="reset" name="Reset"  class="form-control btn-warning" style="width: 141px;  display: inline"/>
+                  </div>
+              </div>
+			  
+				 
+				
 	</form>
 	
-	<font>
-		<c:if test="${not empty param.errMsg}">
-			<c:out value="${param.susMsg}" />		
-		</c:if>
-		<a href="index.jsp">Go Back</a>
-	</font>
 	
 	   </div>
             

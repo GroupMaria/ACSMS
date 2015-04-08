@@ -192,7 +192,7 @@
              
              <form class="form-horizontal" action="OrderDetailsBA" method="post">
              
-             <h3>Order Search</h3><hr/> <br/>
+             <h3>Quotatiion Search</h3><hr/> <br/>
               <div class="form-group">
     			<label for="inputEmail3" class="col-sm-2 control-label">Quotatiion ID :</label>
    				    <div class="col-sm-10">
