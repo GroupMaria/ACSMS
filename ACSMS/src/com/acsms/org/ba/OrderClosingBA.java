@@ -3,6 +3,7 @@ package com.acsms.org.ba;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,59 +23,55 @@ import com.acsms.org.vo.OrderVO;
 @WebServlet("/OrderClosingBA")
 public class OrderClosingBA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public OrderClosingBA() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public OrderClosingBA() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String orderid = request.getParameter("Order Id");
-		String StatusId = request.getParameter("Status Id");
-		OrderClosingVO objOrder = new OrderClosingVO(orderid, StatusId);
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		
-		//String orderid="";
-		String Statusid = "";
-		OrderClosingDAO objOrderClosingDAO = null;
-		
-		 //objOrderDao = null;
+		// Takes the order id to be closed
+		String orderid = request.getParameter("OrderId");
+		System.out.println("The passed Order Id "+orderid );
+		OrderClosingVO closeOrder = new OrderClosingVO();
+		closeOrder.setorderId(orderid);
+
+		// DAO action for the Order ID
+		OrderClosingDAO orderAction;
 		try {
-			OrderClosingDAO objOrderDao = new OrderClosingDAO();
-			objOrderDao.searchOrder();
-			//orderid= objCustomerDao.addNewCust();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			orderAction = new OrderClosingDAO(closeOrder);
+			orderAction.searchOrder();
+			request.setAttribute("OrderClosingDetails", orderAction.getOrderClose());
+			RequestDispatcher submitview = request
+					.getRequestDispatcher("/intermediateClosing.jsp");
+			submitview.forward(request, response);
+		} catch (Exception e1) {
+		
+			e1.printStackTrace();
 		}
-		response.setContentType("application/json");
-		PrintWriter out = response.getWriter();
-		String Strorderid = constructJSON1(orderid);
-		out.println(Strorderid);
-	
+
+		
+
 	}
-	
-	private String constructJSON1(String Orderid) {
 
-		JSONObject jsOrderClosing = new JSONObject();
-		jsOrderClosing.put("Order Id", Orderid);
-		return jsOrderClosing.toString();
 
 
 }
-
-}
-

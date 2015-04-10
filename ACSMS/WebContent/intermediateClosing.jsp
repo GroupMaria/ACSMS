@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="com.acsms.org.vo.OrderClosingVO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -16,16 +19,27 @@
     <link href="resources/css/plugins/morris.css" rel="stylesheet">
     <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+	<script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/plugins/morris/raphael.min.js"></script>
+    <script src="resources/js/plugins/morris/morris.min.js"></script>
+    <script src="resources/js/plugins/morris/morris-data.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <style> 
+    dt{padding-bottom: 10px;}
+    </style>
+    
 </head>
 <body>
 
-    <div id="wrapper">
+ <div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -159,11 +173,10 @@
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
-					<li><a href="Admin/OrderStatus.jsp">Order Status</a></li>
 					<li>
 					
-						 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
+                       <ul id="demo" class="collapse">
 						    <li>
                                 <a href="Admin/ListStaffs.jsp">View Staffs</a>
                             </li> 
@@ -177,7 +190,7 @@
                                 <a href="Admin/RemoveStaff.jsp">Remove Staff</a>
                             </li>
                         </ul>
-                      
+				
 					</li>
                 </ul>
             </div>
@@ -190,25 +203,31 @@
             
             <div class="row" style="height: 560px;">
              
-             <form class="form-horizontal" action="OrderClosingBA" method="post">
+             <form class="form-horizontal" action="GeneratePDFBA" method="post">
              
-             <h3>Order Closing</h3><hr/> <br/>
-              <div class="form-group">
-    			<label for="inputEmail3" class="col-sm-2 control-label">ORDER ID :</label>
-   				    <div class="col-sm-10">
-     			 		<input type="text" class="form-control" id="OrderId" name="OrderId" style="width: 213px;">
-    				</div>
- 				 </div>
-  
-               <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
+                 <% OrderClosingVO OrderDetails = (OrderClosingVO) request.getAttribute("OrderClosingDetails");%>
 
-                   &nbsp;   
-
-                   &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="OrderIdSearch" name="OrderIdSearch" style="width: 141px;">
-                  </div>
-              </div>
-			 </form>
+                 <h3>Order Details &nbsp;   
+</h3>          <hr/> <br/>
+                 
+                 <table><tr>
+                 <td>
+                 The Order for the Quotation (<%= OrderDetails.getorderid()%>) is already generated.
+                 
+                 <dl class="dl-horizontal">
+                 <dt>The Current Order Status  : </dt> <dd> <%= OrderDetails.getStatusId() %> </dd>
+                 <dt>Following States are Completed : </dt> <dd><%= OrderDetails.getMessage() %></dd>
+                 </dl>
+                 </td>
+                 <td>
+                 
+                 
+                 </td>
+                 </tr></table>
+                
+                  
+            
+              </form>
 
              </div>
             
@@ -216,11 +235,8 @@
       </div>
      </div>
 
-    <script src="resources/js/jquery.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/plugins/morris/raphael.min.js"></script>
-    <script src="resources/js/plugins/morris/morris.min.js"></script>
-    <script src="resources/js/plugins/morris/morris-data.js"></script>
+   
+
 
 </body>
 </html>
