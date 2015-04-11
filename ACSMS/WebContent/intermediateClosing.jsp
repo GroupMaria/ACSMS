@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="com.acsms.org.vo.OrderDetailsVO"%>
+<%@page import="com.acsms.org.vo.OrderClosingVO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -18,6 +18,12 @@
     <link href="resources/css/sb-admin.css" rel="stylesheet">
     <link href="resources/css/plugins/morris.css" rel="stylesheet">
     <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/plugins/morris/raphael.min.js"></script>
+    <script src="resources/js/plugins/morris/morris.min.js"></script>
+    <script src="resources/js/plugins/morris/morris-data.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -167,7 +173,9 @@
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Invoice</a></li>
-				    	 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
+					<li>
+					
+					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                        <ul id="demo" class="collapse">
 						    <li>
                                 <a href="Admin/ListStaffs.jsp">View Staffs</a>
@@ -182,6 +190,8 @@
                                 <a href="Admin/RemoveStaff.jsp">Remove Staff</a>
                             </li>
                         </ul>
+				
+					</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -193,32 +203,20 @@
             
             <div class="row" style="height: 560px;">
              
-             <form class="form-horizontal" action="OrderDetailsBA" method="post">
+             <form class="form-horizontal" action="GeneratePDFBA" method="post">
              
-                 <% OrderDetailsVO OrderDetails = (OrderDetailsVO) request.getAttribute("NewOrderDetails");%>
+                 <% OrderClosingVO OrderDetails = (OrderClosingVO) request.getAttribute("OrderClosingDetails");%>
 
-                 <h3>Order Details &nbsp;  <input type="submit" class="form-control btn-danger" value="Generate Order" id="TotalExportquotation" name="TotalExportquotation" style="width: 151px; font-weight: bolder; height: 44px;display:inline"> 
+                 <h3>Order Details &nbsp;   
 </h3>          <hr/> <br/>
                  
                  <table><tr>
                  <td>
-                 The Order for the Quotation (<%= OrderDetails.getRefNumber() %>) is not generated yet. 
-                 <br/>
+                 The Order for the Quotation (<%= OrderDetails.getorderid()%>) is already generated.
                  
                  <dl class="dl-horizontal">
-                 <dt>Reference Number : </dt> <dd> <%= OrderDetails.getRefNumber() %> </dd>
-                 <dt>Date Prepared : </dt> <dd><%= OrderDetails.getDatePrepared() %></dd>
-                 <dt>Product: </dt> <dd><%= OrderDetails.getProduct() %></dd>
-                 <dt>Customer : </dt> <dd><%= OrderDetails.getCustomer() %></dd>
-                 <dt>Shipping From : </dt> <dd><%= OrderDetails.getShippingFrom() %></dd>
-                 <dt>Destination Country : </dt> <dd><%= OrderDetails.getDestinationCountry() %></dd>
-                 <dt>Terms Of Payment : </dt> <dd><%= OrderDetails.getTermsOfPayment() %></dd>
-                 <dt>Mode of Transport : </dt> <dd><%= OrderDetails.getModeofTransport() %></dd>
-                 <dt>Estimated ShipDate : </dt> <dd><%= OrderDetails.getEstimatedShipDate() %></dd>
-                 <dt>packedDimensions : </dt> <dd><%= OrderDetails.getPackedDimensions() %></dd>
-                 <dt>ShippingTo : </dt> <dd><%= OrderDetails.getShippingTo() %></dd>
-                 <dt>packedWeight : </dt> <dd><%= OrderDetails.getPackedWeight()%></dd>
-                 <dt>packedCube : </dt> <dd><%= OrderDetails.getPackedCube() %></dd>	
+                 <dt>The Current Order Status  : </dt> <dd> <%= OrderDetails.getStatusId() %> </dd>
+                 <dt>Following States are Completed : </dt> <dd><%= OrderDetails.getMessage() %></dd>
                  </dl>
                  </td>
                  <td>
@@ -237,12 +235,7 @@
       </div>
      </div>
 
-    <script src="resources/js/jquery.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/plugins/morris/raphael.min.js"></script>
-    <script src="resources/js/plugins/morris/morris.min.js"></script>
-    <script src="resources/js/plugins/morris/morris-data.js"></script>
-
+   
 
 
 </body>
