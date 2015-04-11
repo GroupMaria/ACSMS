@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +34,7 @@
 </head>
 
 <body>
-
+	<%@include file="header.jsp" %>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -131,7 +132,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;<c:out value="${sessionScope['loginUser']}" />&nbsp;<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -144,7 +145,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="Logout.jsp"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -486,8 +487,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="resources/js/plugins/morris/raphael.min.js"></script>
     <script src="resources/js/plugins/morris/morris.min.js"></script>
-    <script src="resources/js/plugins/morris/morris-data.js"></script>
-
+    <script src="resources/js/plugins/morris/morris-data.js"></script>    
 </body>
 
 </html>
