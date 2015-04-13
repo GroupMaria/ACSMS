@@ -86,17 +86,14 @@ INSERT INTO `acsms`.`status` (`StatusId`, `StatusDesc`) VALUES ('6', 'Transport 
 INSERT INTO `acsms`.`status` (`StatusId`, `StatusDesc`) VALUES ('7', 'Shipment Recieved');
 INSERT INTO `acsms`.`status` (`StatusId`, `StatusDesc`) VALUES ('8', 'Order Completed');
 
-<<<<<<< HEAD
-create table transport_booking1 
-( carr_booking_id varchar(50), 
-carr_name varchar(50), 
-invoice_id varchar(50), 
-transport_booking varchar(50), 
-transport_name varchar(50), 
-pick_up_dest varchar(100), 
-Drop_dest varchar(50)) 
-=======
-
+CREATE TABLE `transport_booking` (
+  `carr_booking_id` varchar(50) DEFAULT NULL,
+  `carr_name` varchar(50) DEFAULT NULL,
+  `invoice_id` varchar(50) DEFAULT NULL,
+  `transport_booking` varchar(50) DEFAULT NULL,
+  `transport_name` varchar(50) DEFAULT NULL,
+  `transport_booking_id` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `order` (
