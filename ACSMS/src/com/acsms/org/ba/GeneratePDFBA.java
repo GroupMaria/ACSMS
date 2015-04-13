@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.acsms.org.dao.ConvertHTMLToPDF;
-import com.acsms.org.dao.GeneratePdf;
+import com.acsms.org.dao.GeneratePdfInvoice;
+
+
 
 /**
  * Servlet implementation class GeneratePDFBA
@@ -37,10 +38,9 @@ public class GeneratePDFBA extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		GeneratePdf pdfba=new GeneratePdf();
+		GeneratePdfInvoice pdfba=new GeneratePdfInvoice();
 		//pdfba.generatePDF();
-		ConvertHTMLToPDF  pdf=new ConvertHTMLToPDF();
-		pdf.createPDF("OrderDetails.pdf", getServletContext().getRealPath("Sample.html"));
+	
 	}
 
 }

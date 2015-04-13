@@ -14,7 +14,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 
-public class GeneratePdf {
+public class GeneratePdfInvoice {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,16 +28,16 @@ public class GeneratePdf {
             Font font1 = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
             Font font2 = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
             Paragraph paragraph = new Paragraph();            
-            Chunk chunk = new Chunk("[Your Company Name]");
+            Chunk chunk = new Chunk("Air Cargo Shipping Management System");
             chunk.setFont(font1);
-            Chunk chunk7 = new Chunk("                                                  INVOICE");
+            Chunk chunk7 = new Chunk("           INVOICE");
             chunk7.setFont(font1);
-            Chunk chunk1 = new Chunk("\n[Your Company Slogan]");
-            Chunk chunk2 = new Chunk("\n[Address]");
-            Chunk chunk6 = new Chunk("                                                                                                      INVOICE No[100]");
+            Chunk chunk1 = new Chunk("\nACSMS");
+            Chunk chunk2 = new Chunk("\n941 Progress Avenue");
+            Chunk chunk6 = new Chunk("                                                                                                    INVOICE No[100]");
             chunk6.setFont(font2);            
-            Chunk chunk3 = new Chunk("\n[City, Province Postal Code]");
-            Chunk chunk4 = new Chunk("                                                                     DATE: "+ new Date().toString());
+            Chunk chunk3 = new Chunk("\nToronto,ON M1G 3T8");
+            Chunk chunk4 = new Chunk("                                                                   DATE: "+ new Date().toString());
             chunk4.setFont(font2);
             Chunk chunk5 = new Chunk("\n");            
             paragraph.add(chunk);
