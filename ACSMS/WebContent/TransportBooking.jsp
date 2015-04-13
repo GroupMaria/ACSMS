@@ -210,7 +210,7 @@
 <tr>
 	<td><p>Invoice ID</p></td>
 	
-	<td><input type=text name=crrName size=15 maxlength=15/></td>
+	<td><input type=text name=invID size=15 maxlength=15/></td>
 </tr>
 <tr>
 	<td><p> Carrier Name</p></td>
