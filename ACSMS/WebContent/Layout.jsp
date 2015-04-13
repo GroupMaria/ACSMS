@@ -51,7 +51,7 @@
                     <li><a href="Quotation.jsp"><i class="fa fa-fw fa-edit"></i> Quotation</a></li>    
                     <li><a href="NewOrder.jsp"><i class="fa fa-fw fa-edit"></i> Order</a></li>
                     <li><a href="GenerateInvoice.jsp"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>
-					<li><a href="OrderSearch_Clearance.jsp"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
+					<li><a href="AirwayBill_Clearance.jsp"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="GenerateAWB.jsp"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="TransportBooking.jsp"><i class="fa fa-fw fa-edit"></i>Transport Booking</a></li>
 					<li><a href="ShipmentStatus.jsp"><i class="fa fa-fw fa-edit"></i>Shipment Status</a></li>
