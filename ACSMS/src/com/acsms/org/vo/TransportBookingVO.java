@@ -8,10 +8,19 @@ public class TransportBookingVO {
 	private String trnsName ;
 	private String trnsbookID ;
 	private String invoice_id ;
+	private String transID;
 	
 	public TransportBookingVO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getTransID() {
+		return transID;
+	}
+
+	public void setTransID(String transID) {
+		this.transID = transID;
 	}
 
 	// Constructor

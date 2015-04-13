@@ -43,7 +43,7 @@ public class TransportBookingBA extends HttpServlet {
 		String crrbookID = request.getParameter("crrbookID");
 		String trnsName = request.getParameter("trnsName");
 		String trnsbookID = request.getParameter("trnsbookID");
-		String invoice_id = request.getParameter("invoice_id");
+		String invoice_id = request.getParameter("invID");
 			
 		TransportBookingVO objTransportBooking = new TransportBookingVO(crrName,crrbookID,trnsName,trnsbookID,invoice_id);		
 			

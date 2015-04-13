@@ -26,35 +26,33 @@
 <body>
 
  <%@include file="Authentication.jsp" %> 
- 
     <div id="wrapper">
 
-  <%@include file="Layout.jsp" %> 
+       <%@include file="Layout.jsp" %> 
         <div id="page-wrapper">
 
             <div class="container-fluid">
             
             <div class="row" style="height: 560px;">
              
-             <form class="form-horizontal" action="OrderClosingBA" method="post">
+             <form class="form-horizontal" action="OrderDetailsBA" method="post">
              
-             <h3>Order Closing</h3><hr/> <br/>
+             <h3>Airway Bill Certificate</h3><hr/> <br/>
               <div class="form-group">
-    			<label for="inputEmail3" class="col-sm-2 control-label">ORDER ID :</label>
+    			<label for="inputEmail3" class="col-sm-2 control-label">Order ID :</label>
    				    <div class="col-sm-10">
-     			 		<input type="text" class="form-control" id="OrderId" name="OrderId" style="width: 213px;">
+     			 		<input type="text" class="form-control" id="orderid" name="orderid" style="width: 213px;">
     				</div>
  				 </div>
   
                <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-
-                   &nbsp;   
-
-                   &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="OrderIdSearch" name="OrderIdSearch" style="width: 141px;">
+                   &nbsp;   <input type="submit" value="Generate AWB Certificate" class="form-control btn-primary" id="AWBCertificate" name="AWBCertificate" style="width: 141px;">
                   </div>
               </div>
-			 </form>
+  
+    
+              </form>
 
              </div>
             
