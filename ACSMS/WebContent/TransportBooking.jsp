@@ -33,6 +33,8 @@
 </head>
 <body>
 
+ <%@include file="Authentication.jsp" %> 
+ 
 	 <div id="wrapper">
 
 				 <%@include file="Layout.jsp" %> 

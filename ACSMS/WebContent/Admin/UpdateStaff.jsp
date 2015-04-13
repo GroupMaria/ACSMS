@@ -21,7 +21,7 @@
 <body>
 	<div id="wrapper">
 
-	<%@include file="../Layout1.jsp" %> 
+	   <%@include file="Layout.jsp" %> 
 	
 		<div id="page-wrapper">
 

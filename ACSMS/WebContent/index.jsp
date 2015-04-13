@@ -37,6 +37,7 @@
 	
     <div id="wrapper">
     
+       <%@include file="Authentication.jsp" %> 
        <%@include file="Layout.jsp" %> 
         
         <div id="page-wrapper">

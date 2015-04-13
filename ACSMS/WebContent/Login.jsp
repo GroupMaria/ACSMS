@@ -71,6 +71,13 @@
 		  border-top-left-radius: 0;
 		  border-top-right-radius: 0;
 		}
+		.profile-img-card {
+	    width: 96px;
+	    height: 96px;
+	    margin: 0px auto 10px;
+	    display: block;
+	    border-radius: 50%;
+     }
 		</style>
 	
 	</head>
@@ -102,9 +109,10 @@
      
        <div class="wrapper">
 		     <form id="loginForm" method="POST" action="LoginAuthenticate.jsp"  style="max-width: 380px;padding: 15px 35px 45px;margin: 0 auto;background-color: #fff;border: 1px solid rgba(0,0,0,0.1);">   
-		      <h2 class="form-signin-heading">Sign in</h2>
+		      <h2 class="form-signin-heading">ACSMS Member login</h2>
 		      
 		      <b>
+		      <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
 		      <font color="red">
 		        	<c:if test="${not empty param.errMsg}">
 		            <c:out value="${param.errMsg}" />

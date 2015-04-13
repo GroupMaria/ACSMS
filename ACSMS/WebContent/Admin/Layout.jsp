@@ -1,13 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-		 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>ACSMS</title>
 
@@ -44,12 +36,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">ACSMS</a>
+                <a class="navbar-brand" href="../index.jsp">ACSMS</a>
             </div>
             <!-- Top Menu Items -->
            <ul class="nav navbar-right top-nav">
                 <li>
-                    <a href="Login.jsp"><i class="fa fa-fw fa-power-off"></i> Log in</a>
+                    <a href="../Logout.jsp"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
                 
             </ul>
@@ -69,28 +61,28 @@
                     <li>
                         <a href="../NewOrder.jsp"><i class="fa fa-fw fa-edit"></i> Order</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>
+                    <li><a href="../GenerateInvoice.jsp"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>
 					<li><a href="../OrderSearch_Clearance.jsp"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
-					<li><a href="#"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
+					<li><a href="../AirwayBill_Clearance.jsp"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="../TransportBooking.jsp"><i class="fa fa-fw fa-edit"></i>Transport Booking</a></li>
 					<li><a href="../OrderClosing.jsp"><i class="fa fa-fw fa-edit"></i>Order Status/ Closing</a></li>
 					<li><a href="../QuotationStatus.jsp"><i class="fa fa-fw fa-edit"></i>QuotationStatus</a></li>
                     <li><a href="../ShipmentStatus.jsp"><i class="fa fa-fw fa-edit"></i>Shipment Status</a></li>
-					<li>
+					<li <c:if test="${sessionScope['userrole'] == 2}"><c:out value="style='display: none;'"/></c:if>>
 					
 					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
 						    <li>
-                                <a href="ListStaffs.jsp">View Staffs</a>
+                                <a href="Admin/ListStaffs.jsp">View Staffs</a>
                             </li> 
                             <li>
-                              <a href="NewStaff.jsp">New Staff</a>
+                              <a href="Admin/NewStaff.jsp">New Staff</a>
                             </li>
                             <li>
-                                <a href="UpdateStaff.jsp">Update Staff</a>
+                                <a href="Admin/UpdateStaff.jsp">Update Staff</a>
                             </li>
                               <li>
-                                <a href="RemoveStaff.jsp">Remove Staff</a>
+                                <a href="Admin/RemoveStaff.jsp">Remove Staff</a>
                             </li>
                         </ul>
 				
