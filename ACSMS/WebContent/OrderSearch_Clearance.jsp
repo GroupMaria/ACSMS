@@ -210,7 +210,11 @@
      			 		<input type="text" class="form-control" id="orderid" name="orderid" style="width: 213px;">
     				</div>
  				 </div>
-				 
+				 <font color="red">
+        	<c:if test="${not empty param.errMsg}">
+            <c:out value="${param.errMsg}" />
+            </c:if>
+        </font>
 			  <br/><br/><br/><br/>
                <div class="form-group">
                   <div class="col-sm-offset-1 col-sm-10">

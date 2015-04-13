@@ -212,23 +212,36 @@
 								<c:param name="errMsg" value="Please Enter an Order ID" />
 							</c:redirect> 
 					</c:if>
-					<c:if test="${ empty param.quotationstatus}">
-							<c:redirect url="QuotationStatus_Clearance.jsp" >
-								<c:param name="errMsg" value="Quotaion Stus" />
-							</c:redirect> 
-					</c:if>
+					
 					
 					<sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
 										url="jdbc:mysql://localhost/acsms" 
 										user="root" password="admin"/>
-										
+									
+					<sql:query dataSource="${dbsource}" var="selectQ">
+							SELECT COUNT(*) AS kount FROM custom_clearance WHERE orderid = ?
+							<sql:param value="${param.orderid}"/>
+					</sql:query>	
 					<sql:query dataSource="${dbsource}" var="result">
 							SELECT * FROM custom_clearance WHERE orderid = ?
 							<sql:param value="${param.orderid}"/>
-					</sql:query>
+					</sql:query>					
+					<c:forEach items="${selectQ.rows}" var="r">
+    			<c:choose>
+    				<c:when test="${r.kount gt 0}">
+    					
+    				</c:when>
+    				<c:otherwise>
+    					<c:redirect url="OrderSearch_Clearance.jsp">
+    						<c:param name="errMsg" value="Order does not exist."/>
+    					</c:redirect>
+    				</c:otherwise>
+    			</c:choose>
+    		</c:forEach>
 					<form action="Update_Clearance.jsp" method="post">
 					<table>
 					<c:forEach var="row" items="${result.rows}"> 	
+					
 						<input type="hidden" name="orderid" value="${row.orderid}"/>
 						
 						
