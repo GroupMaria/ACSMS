@@ -52,9 +52,9 @@
             
             <div class="row" style="height: 560px;">
              
-             <form class="form-horizontal" action="OrderDetailsBA" method="post">
+             <form class="form-horizontal" action="ShipmentStatusBA" method="post">
              
-             <h3>Shipment Search</h3><hr/> <br/>
+             <h3>Shipment Received Status</h3><hr/> <br/>
               <div class="form-group">
     			<label for="inputEmail3" class="col-sm-2 control-label">Order ID :</label>
    				    <div class="col-sm-10">
