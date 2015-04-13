@@ -1,7 +1,13 @@
 package com.acsms.org.dao;
 import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.Date;
 
+import com.acsms.org.vo.OrderDetailsVO;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
@@ -15,8 +21,58 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 
 public class GeneratePdfInvoice {
+	
+	private Connection connect;
+	ConnectionPool invoicePool = new ConnectionPool();
+	private OrderDetailsVO invoiceVO;
 
-	public static void main(String[] args) {
+	
+	public GeneratePdfInvoice(OrderDetailsVO invoiceVO) throws Exception {
+		
+		invoicePool.setConnect(connect);
+		connect=invoicePool.getConnect();		
+		this.invoiceVO=invoiceVO;
+	}
+
+
+	public void searchOrder(String orderid) throws SQLException {
+		System.out.println("The corresponding Order ID:"+orderid);
+		
+		String SearchDataSQL = "Select * from acsms.order where orderid = ?";
+		PreparedStatement pstmt = connect.prepareStatement(SearchDataSQL);
+		pstmt.setString(1, orderid);
+		ResultSet rs=pstmt.executeQuery();
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int columnsNumber = rsmd.getColumnCount();
+		while (rs.next()) {
+			for (int i = 1; i <= columnsNumber; i++) {
+		
+				 if(rsmd.getColumnName(i).trim().contains("quotationid")){
+					 String quoteID=rs.getString(i);
+					 System.out.println("The Quotation ID: "+quoteID);
+					 searchQuote(quoteID);
+				 }
+			}
+		}
+	}
+
+	private void searchQuote(String quotationid) throws SQLException {
+		String SearchQuoteDataSQL = "Select * from acsms.quotation where ref_no = ?";
+		PreparedStatement pstmtQuote = connect.prepareStatement(SearchQuoteDataSQL);
+		pstmtQuote.setString(1, quotationid);
+		ResultSet rsQuote=pstmtQuote.executeQuery();
+		ResultSetMetaData rsmd = rsQuote.getMetaData();
+		int columnsNumber = rsmd.getColumnCount();
+		while (rsQuote.next()) {
+			for (int i = 1; i <= columnsNumber; i++) {
+				
+			}
+		}
+		pstmtQuote.close();
+	}
+
+
+	public void generatePDFINvoice() {
 		// TODO Auto-generated method stub
 		Document document = new Document();
 
@@ -232,5 +288,6 @@ public class GeneratePdfInvoice {
         }
     
 	}
+
 
 }
