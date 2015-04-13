@@ -51,12 +51,12 @@
                  	<li><a href="../Quotation.jsp"><i class="fa fa-fw fa-edit"></i> Quotation</a></li>
                     <li><a href="../NewOrder.jsp"><i class="fa fa-fw fa-edit"></i> Order</a></li>
                     <li><a href="../GenerateInvoice.jsp"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>
-					<li><a href="../AirwayBill_Clearance.jsp"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
+					<li><a href="../OrderSearch_Clearance.jsp"><i class="fa fa-fw fa-edit"></i>Customs Clearance</a></li>
 					<li><a href="../GenerateAWB.jsp"><i class="fa fa-fw fa-edit"></i>Airway Bill Certificate</a></li>
 					<li><a href="../TransportBooking.jsp"><i class="fa fa-fw fa-edit"></i>Transport Booking</a></li>
 					<li><a href="../ShipmentStatus.jsp"><i class="fa fa-fw fa-edit"></i>Shipment Status</a></li>
 					<li><a href="../OrderClosing.jsp"><i class="fa fa-fw fa-edit"></i>Order Status/ Closing</a></li>
-                  	<li <c:if test="${sessionScope['userrole'] ne 2}"><c:out value="style='display: none;'"/></c:if>>
+                  	<li <c:if test="${sessionScope.username ne 2}"><c:out value="style='display: none;'"/></c:if>>
 					
 					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">

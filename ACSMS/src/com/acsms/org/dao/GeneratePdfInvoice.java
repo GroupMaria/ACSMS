@@ -58,21 +58,49 @@ public class GeneratePdfInvoice {
 
 	private void searchQuote(String quotationid) throws SQLException {
 		String SearchQuoteDataSQL = "Select * from acsms.quotation where ref_no = ?";
-		PreparedStatement pstmtQuote = connect.prepareStatement(SearchQuoteDataSQL);
+		PreparedStatement pstmtQuote = connect
+				.prepareStatement(SearchQuoteDataSQL);
 		pstmtQuote.setString(1, quotationid);
-		ResultSet rsQuote=pstmtQuote.executeQuery();
-		ResultSetMetaData rsmd = rsQuote.getMetaData();
-		int columnsNumber = rsmd.getColumnCount();
-		while (rsQuote.next()) {
-			for (int i = 1; i <= columnsNumber; i++) {
-				
-			}
-		}
+		ResultSet rsQuote = pstmtQuote.executeQuery();
+		// Move cursor to the first row.
+		System.out.println("Moving cursor to the first row...");
+		rsQuote.first();
+		// Extract data from result set
+		System.out.println("Displaying record...");
+		// Retrieve by column name
+		String refNumber = rsQuote.getString("ref_no");
+		invoiceVO.setRefNumber(refNumber);
+		String DatePrepared = rsQuote.getString("date_prepared");
+		invoiceVO.setDatePrepared(DatePrepared);
+		String product = rsQuote.getString("product");
+		invoiceVO.setProduct(product);
+		String customer = rsQuote.getString("cust_name");
+		invoiceVO.setCustomer(customer);
+		String shippingFrom = rsQuote.getString("ship_from");
+		invoiceVO.setShippingFrom(shippingFrom);
+		String destinationCountry = rsQuote.getString("dest_country");
+		invoiceVO.setDestinationCountry(destinationCountry);
+		String termsOfPayment = rsQuote.getString("term_of_pay");
+		invoiceVO.setTermsOfPayment(termsOfPayment);
+		String modeofTransport = rsQuote.getString("mode_of_transport");
+		invoiceVO.setModeofTransport(modeofTransport);
+		String estimatedShipDate = rsQuote.getString("date_est_ship");
+		invoiceVO.setEstimatedShipDate(estimatedShipDate);
+		String packedDimensions = rsQuote.getString("pack_dim");
+		invoiceVO.setPackedDimensions(packedDimensions);
+		String ShippingTo = rsQuote.getString("ship_to");
+		invoiceVO.setShippingTo(ShippingTo);
+		String packedWeight = rsQuote.getString("pack_weight");
+		invoiceVO.setPackedWeight(packedWeight);
+		String packedCube = rsQuote.getString("pack_cube");
+		invoiceVO.setPackedCube(packedCube);
 		pstmtQuote.close();
+		
+		generatePDFINvoice(invoiceVO);
 	}
 
 
-	public void generatePDFINvoice() {
+	public void generatePDFINvoice(OrderDetailsVO invoiceVO) {
 		// TODO Auto-generated method stub
 		Document document = new Document();
 
@@ -171,18 +199,18 @@ public class GeneratePdfInvoice {
             //table2.addCell(brAddr);
             table2.addCell(amt);   
             
-            PdfPCell qty1 = new PdfPCell(new Paragraph(" "));
-            PdfPCell des1 = new PdfPCell(new Paragraph(" "));
-            PdfPCell up1 = new PdfPCell(new Paragraph(" "));
+            PdfPCell qty1 = new PdfPCell(new Paragraph("Test "));
+            PdfPCell des1 = new PdfPCell(new Paragraph("Test "));
+            PdfPCell up1 = new PdfPCell(new Paragraph(" Test"));
             //PdfPCell bankName1 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brCode1 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brAddr1 = new PdfPCell(new Paragraph(" "));
-            PdfPCell amt1 = new PdfPCell(new Paragraph(" "));
+            PdfPCell amt1 = new PdfPCell(new Paragraph("Test "));
             
-            PdfPCell qty2 = new PdfPCell(new Paragraph(" "));
+            PdfPCell qty2 = new PdfPCell(new Paragraph("Test "));
             qty2.setBorder(Rectangle.NO_BORDER);
-            PdfPCell des2 = new PdfPCell(new Paragraph(" "));
-            PdfPCell up2 = new PdfPCell(new Paragraph(" "));
+            PdfPCell des2 = new PdfPCell(new Paragraph(" Test"));
+            PdfPCell up2 = new PdfPCell(new Paragraph("Test "));
             //PdfPCell bankName2 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brCode2 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brAddr2 = new PdfPCell(new Paragraph(" "));
