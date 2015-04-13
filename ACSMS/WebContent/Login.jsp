@@ -39,72 +39,86 @@
      <script src="resources/scripts/Quotation.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
 
-  <style>
-	
-body {
-	background: #eee !important;	
-}
-
-.wrapper {	
-	margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-        .form-signin
-        {
-            max-width: 380px;
-            padding: 15px 35px 45px;
-            margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-
-  .form-signin-heading,.checkbox {
-	  margin-bottom: 30px;
-	}
-
-	.checkbox {
-	  font-weight: normal;
-	}
-
-	
-
-	input[type="text"] {
-	  margin-bottom: -1px;
-	  border-bottom-left-radius: 0;
-	  border-bottom-right-radius: 0;
-	}
-
-	input[type="password"] {
-	  margin-bottom: 20px;
-	  border-top-left-radius: 0;
-	  border-top-right-radius: 0;
-	}
-
-
-	
-	</style>
+	 <style>	
+	  body {
+		background: #eee !important;	
+		}
+		.wrapper {	
+	     margin-top: 80px;
+		  margin-bottom: 80px;
+		}
+	   .form-signin
+	   {
+	      max-width: 380px;
+	      padding: 15px 35px 45px;
+	      margin: 0 auto;
+	      background-color: #fff;
+	      border: 1px solid rgba(0,0,0,0.1);
+	   }
+	  .form-signin-heading,.checkbox {
+		  margin-bottom: 30px;
+		}
+		.checkbox {
+		  font-weight: normal;
+		}
+		input[type="text"] {
+		  margin-bottom: -1px;
+		  border-bottom-left-radius: 0;
+		  border-bottom-right-radius: 0;
+		}
+		input[type="password"] {
+		  margin-bottom: 20px;
+		  border-top-left-radius: 0;
+		  border-top-right-radius: 0;
+		}
+		</style>
 	
 	</head>
 	<body>
 	 <div id="wrapper">
 
-        <%@include file="Layout.jsp" %> 
-        
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.jsp">ACSMS</a>
+            </div>
+            <!-- Top Menu Items -->
+           <ul class="nav navbar-right top-nav">
+                <li>
+                
+                    <a href="Login.jsp"><i class="fa fa-fw fa-power-off"></i> Log in</a>
+                </li>
+                
+            </ul>
+         
+          
+     </nav>
+     
        <div class="wrapper">
 		     <form id="loginForm" method="POST" action="LoginAuthenticate.jsp"  style="max-width: 380px;padding: 15px 35px 45px;margin: 0 auto;background-color: #fff;border: 1px solid rgba(0,0,0,0.1);">   
 		      <h2 class="form-signin-heading">Sign in</h2>
-		
-		      <input type="text" class="form-control" style="position: relative;font-size: 16px;height: auto;padding: 10px;" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
-		      <input type="password" class="form-control" style="position: relative;font-size: 16px;height: auto;padding: 10px;margin-top: 29px" id="password" name="password" value="" required="" title="Please enter your password" placeholder="password">   
-		     
-		      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
-		    </form>
+		      
+		      <b>
 		      <font color="red">
 		        	<c:if test="${not empty param.errMsg}">
 		            <c:out value="${param.errMsg}" />
 		            </c:if>
-		        </font>
+		     </font>
+		      </b>
+		      
+		     <div style="padding-top: 16px; padding-bottom: 11px;">
+		      <input type="text" class="form-control" style="position: relative;font-size: 16px;height: auto;padding: 10px;" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+		      <input type="password" class="form-control" style="position: relative;font-size: 16px;height: auto;padding: 10px;margin-top: 29px" id="password" name="password" value="" required="" title="Please enter your password" placeholder="password">   
+		     </div>
+		      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+		    </form>
+		      
        </div>
   
   
