@@ -139,13 +139,17 @@ public class QuotationDao {
 			pstmt.setString(16, quotation.getSellingPriceQuotedBy());
 			pstmt.setString(17, quotation.getInlandFreightQuote());
 			pstmt.setString(18, quotation.getInlandFreightQuotedBy());
+			
 			pstmt.setString(19, quotation.getInlandUnloading());
 			pstmt.setString(20, quotation.getInland_Pier_deliver());
 			pstmt.setString(21, quotation.getInland_terminal_handle());
-			pstmt.setString(22, quotation.getInlandFreightothers1());
-			pstmt.setString(23, quotation.getInlandFreightothers2());
+			pstmt.setString(22, quotation.getInland_other());
+			
+			pstmt.setString(23, quotation.getInlandFreightothers1());
 			pstmt.setString(24, quotation.getInternationalFreightQuote1());
 			pstmt.setString(25, quotation.getInternationalFreightQuotedBy());
+			
+			
 			pstmt.setString(26, quotation.getFuelAdjustments());
 			pstmt.setString(27, quotation.getContainerStuffing());
 			pstmt.setString(28, quotation.getOthersAirFreight());

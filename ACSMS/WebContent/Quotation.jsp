@@ -89,13 +89,13 @@
 		<div class="form-group">
 		   <label for="ShippingFrom" class="col-sm-4 control-label">To be shipped <b>from</b></label>
 		   <div class="col-sm-8">
-			 <input type="text" class="form-control" id="ShippingFrom" name="shippingFrom">
+			 <input type="text" class="form-control" id="shippingFrom" name="shippingFrom">
 		  </div>
 		</div>
 		<div class="form-group">
 		   <label for="destinationCuontry" class="col-sm-4 control-label">Destination Country</label>
 		   <div class="col-sm-8">
-		   <select class="form-control" id="destinationCountry" name="destinationCuontry">
+		   <select class="form-control" id="destinationCountry" name="destinationCountry">
 		<option value="AF">Afghanistan</option>
 		<option value="AX">Åland Islands</option>
 		<option value="AL">Albania</option>
@@ -372,7 +372,7 @@
 		<div class="form-group">
 		   <label for="EstimatedShipDate" class="col-sm-4 control-label">Estimated Ship date</label>
 		   <div class="col-sm-8">
-			 <input type="text" class="form-control" id="EstimatedShipDate" name="estimatedShipDate">
+			 <input type="text" class="form-control" id="estimatedShipDate" name="estimatedShipDate">
 		  </div>
 		</div>
 		<div class="form-group">
@@ -491,7 +491,7 @@
 		   <td colspan="2">
 				  <div style="padding-top: 13px;">
 				    <span class="" style="width: 10px;">$</span>
-					<input class="" id="inlandFreightQuote" name="InternationalFreightQuote1" style="width:150px" type="text"> 
+					<input class="" id="InternationalFreightQuote1" name="InternationalFreightQuote1" style="width:150px" type="text"> 
 					Quoted by : <input id="InternationalFreightQuotedBy" name="InternationalFreightQuotedBy" style="width:150px" type="text"> 		
 				  </div>
 				 
