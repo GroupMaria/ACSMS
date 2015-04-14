@@ -188,7 +188,7 @@ public class GeneratePdfInvoice {
             tableName.setHorizontalAlignment (Element.ALIGN_CENTER);
             PdfPCell qty = new PdfPCell(new Paragraph("QUANTITY"));
             PdfPCell des = new PdfPCell(new Paragraph("DESCRIPTION"));
-            PdfPCell up = new PdfPCell(new Paragraph("UNIT PRICE"));            
+            PdfPCell up = new PdfPCell(new Paragraph("DIMENSIONS"));            
             PdfPCell amt = new PdfPCell(new Paragraph("AMOUNT"));
             table2.addCell(tableName);
             table2.addCell(qty);
@@ -199,13 +199,13 @@ public class GeneratePdfInvoice {
             //table2.addCell(brAddr);
             table2.addCell(amt);   
             
-            PdfPCell qty1 = new PdfPCell(new Paragraph("Test "));
-            PdfPCell des1 = new PdfPCell(new Paragraph("Test "));
-            PdfPCell up1 = new PdfPCell(new Paragraph(" Test"));
+            PdfPCell qty1 = new PdfPCell(new Paragraph(invoiceVO.getPackedWeight()));
+            PdfPCell des1 = new PdfPCell(new Paragraph(invoiceVO.getProduct()));
+            PdfPCell up1 = new PdfPCell(new Paragraph("Packed Dimensions: "+invoiceVO.getPackedCube() +"Packed Cudbe:"+invoiceVO.getPackedDimensions()));
             //PdfPCell bankName1 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brCode1 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brAddr1 = new PdfPCell(new Paragraph(" "));
-            PdfPCell amt1 = new PdfPCell(new Paragraph("Test "));
+            PdfPCell amt1 = new PdfPCell(new Paragraph(invoiceVO.getTotalExportquotation()));
             
             PdfPCell qty2 = new PdfPCell(new Paragraph("Test "));
             qty2.setBorder(Rectangle.NO_BORDER);
@@ -214,7 +214,7 @@ public class GeneratePdfInvoice {
             //PdfPCell bankName2 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brCode2 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brAddr2 = new PdfPCell(new Paragraph(" "));
-            PdfPCell amt2 = new PdfPCell(new Paragraph(" "));
+            PdfPCell amt2 = new PdfPCell(new Paragraph(invoiceVO.getTotalExportquotation()));
             
             PdfPTable nestedTable = new PdfPTable(1);
             

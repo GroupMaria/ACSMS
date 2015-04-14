@@ -1,8 +1,6 @@
 package com.acsms.org.ba;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.acsms.org.dao.OrderDetailsDao;
 import com.acsms.org.dao.QuotationDao;
-import com.acsms.org.vo.OrderDetailsVO;
 import com.acsms.org.vo.QuotationVO;
 
 /**
@@ -131,10 +127,8 @@ public class QuotationAction extends HttpServlet {
 		quoteDao.createNewQuote();
 
 		request.setAttribute("QuoteDetails", quotation);
-
 		RequestDispatcher view = request
-				.getRequestDispatcher("/intermediate.jsp");
-
+				.getRequestDispatcher("/NewOrder.jsp");
 		view.forward(request, response);
 
 	}

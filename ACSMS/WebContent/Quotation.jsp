@@ -366,7 +366,7 @@
 		<div class="form-group">
 		   <label for="refNumber" class="col-sm-4 control-label">Ref No</label>
 		   <div class="col-sm-8">
-			 <input type="text" class="form-control" id="refNumber" name="refNumber">
+			 <input type="text" class="form-control" id="refNumber" name="refNumber" disabled="disabled">
 		  </div>
 		</div>
 		<div class="form-group">

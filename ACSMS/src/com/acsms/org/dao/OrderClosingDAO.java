@@ -49,6 +49,7 @@ public class OrderClosingDAO {
 		        		//close order
 		        		System.out.println("Inside the Close Order Status 2");
 		        		closeOrder();
+		        	
 		        		
 		        	}else
 		        	{
@@ -98,8 +99,10 @@ public class OrderClosingDAO {
 		pstmt.setString(1, "8");
 		pstmt.setString(2, closeOrder.getorderid());
 		pstmt.executeUpdate();
-		System.out.println("Updated status Successfully !!!");
+		System.out.println("Updated status Successfully !!!" );
+		closeOrder.setstatusid(8);
 		pstmt.close();
+		displayStatusId();
 
 	}
 
