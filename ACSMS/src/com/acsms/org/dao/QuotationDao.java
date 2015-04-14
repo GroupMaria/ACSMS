@@ -128,7 +128,7 @@ public class QuotationDao {
 			pstmt.setString(5, quotation.getPackedDimensions());
 			pstmt.setString(6, quotation.getPackedWeight());
 			pstmt.setString(7, quotation.getPackedCube());
-			pstmt.setString(8, quotation.getEstimatedShipDate());
+			pstmt.setString(8, shipStr);
 			pstmt.setString(9, quotation.getShippingFrom());
 			pstmt.setString(10, quotation.getShippingTo());
 			pstmt.setString(11, quotation.getDestinationCountry());
