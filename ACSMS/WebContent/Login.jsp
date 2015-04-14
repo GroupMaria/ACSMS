@@ -82,7 +82,7 @@
 	
 	</head>
 	<body>
-	 <div id="wrapper">
+	 <div>
 
      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
