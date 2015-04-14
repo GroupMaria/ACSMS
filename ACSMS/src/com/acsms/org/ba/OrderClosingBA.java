@@ -48,6 +48,8 @@ public class OrderClosingBA extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
+		String user = request.getParameter("user");
+		
 		// Takes the order id to be closed
 		String orderid = request.getParameter("OrderId");
 		System.out.println("The passed Order Id "+orderid );
@@ -60,9 +62,19 @@ public class OrderClosingBA extends HttpServlet {
 			orderAction = new OrderClosingDAO(closeOrder);
 			orderAction.searchOrder();
 			request.setAttribute("OrderClosingDetails", orderAction.getOrderClose());
-			RequestDispatcher submitview = request
+			if(user.equals("staff"))
+			{
+			 RequestDispatcher submitview = request
 					.getRequestDispatcher("/intermediateClosing.jsp");
-			submitview.forward(request, response);
+			 submitview.forward(request, response);
+			}
+			else
+			{
+				RequestDispatcher submitview = request
+						.getRequestDispatcher("/CustOrderStatus.jsp");
+				submitview.forward(request, response);
+			}
+			
 		} catch (Exception e1) {
 		
 			e1.printStackTrace();

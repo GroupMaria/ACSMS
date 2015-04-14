@@ -57,7 +57,7 @@
             <div class="row" style="height: 560px;">
              
              <form class="form-horizontal" action="OrderClosingBA" method="post">
-             
+               <input type="hidden" name="user" value="customer">
              <h3>Track Order</h3><hr/> <br/>
               <div class="form-group">
     			<label for="inputEmail3" class="col-sm-2 control-label">ORDER ID :</label>
