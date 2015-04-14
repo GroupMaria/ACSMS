@@ -1,3 +1,8 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <html>
 <head>
 
@@ -47,6 +52,15 @@
           		<li><a href="../TrackOrder.jsp"><i class="fa fa-fw fa-dashboard"></i> Track Order Status</a></li>
               
 	             <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${sessionScope['loginUserName']} <span class="caret"></span></a>
+		              <ul class="dropdown-menu" role="menu">
+		                    <li>
+                                <a href="../ChangePassword.jsp">Change Password </a>
+                            </li>  
+		              </ul>
+	            </li>
+        
+                   <li class="dropdown"  <c:if test="${sessionScope['UserRole'] ne 1}"><c:out value="style=display:none"/></c:if>>
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
 		                    <li>
@@ -63,6 +77,7 @@
                             </li>
 		              </ul>
 	            </li>
+        
         
                  <li><a href="../Logout.jsp"><i class="fa fa-fw fa-power-off"></i> Log Out</a></li>
           </ul>

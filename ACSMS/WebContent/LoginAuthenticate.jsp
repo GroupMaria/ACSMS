@@ -23,7 +23,7 @@
     						url="jdbc:mysql://localhost/acsms"
     						user="root" password="admin"/>
     		<s:query dataSource="${ds}" var="selectQ">
-    			SELECT userid as userid,sum(role) AS userrole, COUNT(*) AS kount FROM user 
+    			SELECT username,userid as userid,max(role) AS userrole, COUNT(*) AS kount FROM user 
     			WHERE username= ? AND password= ?
     			<sql:param value="${param.username}"/>
     			<sql:param value="${param.password}"/>
@@ -34,6 +34,10 @@
     					<c:set scope="session" 
     							var="loginUser"
     							value="${r.userid}"/>
+    					<c:set scope="session" 
+    							var="loginUserName"
+    							value="${r.username}"/>
+    							
     				   	<c:set scope="session" 
     							var="UserRole"
     							value="${r.userrole}"/>

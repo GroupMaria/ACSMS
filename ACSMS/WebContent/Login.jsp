@@ -97,6 +97,7 @@
             </div>
             <!-- Top Menu Items -->
            <ul class="nav navbar-right top-nav">
+                <li><a href="TrackOrder.jsp"><i class="fa fa-fw fa-dashboard"></i> Track Order Status</a></li>
                 <li>
                 
                     <a href="Login.jsp"><i class="fa fa-fw fa-power-off"></i> Log in</a>

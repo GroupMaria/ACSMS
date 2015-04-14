@@ -45,8 +45,16 @@
             <!-- Top Menu Items -->
            <ul class="nav navbar-right top-nav">
           		<li><a href="TrackOrder.jsp"><i class="fa fa-fw fa-dashboard"></i> Track Order Status</a></li>
-              
-	             <li class="dropdown">
+          		 <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${sessionScope['loginUserName']} <span class="caret"></span></a>
+		              <ul class="dropdown-menu" role="menu">
+		                    <li>
+                                <a href="ChangePassword.jsp">Change Password </a>
+                            </li>  
+		              </ul>
+	            </li>
+        
+               <li class="dropdown"  <c:if test="${sessionScope['UserRole'] ne 1}"><c:out value="style=display:none"/></c:if>>
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
 		                    <li>
