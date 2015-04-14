@@ -15,7 +15,7 @@ public class CustomerDao {
 
 	public CustomerDao() throws Exception {
 		customerPool.setConnect(connect);
-		
+
 	}
 
 	// Constructor with values
@@ -25,7 +25,6 @@ public class CustomerDao {
 		customerPool.setConnect(connect);
 		connect = customerPool.getConnect();
 	}
-
 
 	private String generateCustomerNo() {
 		Random randomGenerator = new Random();
@@ -38,34 +37,26 @@ public class CustomerDao {
 	public String addNewCust() throws SQLException {
 
 		String CustID = generateCustomerNo();
-		String insertCustDataSQL = "INSERT INTO acsms.customer VALUES ()";
+		String name=objCustomer.getCustFName() +" "+ objCustomer.getCustLName();
+		System.out.println("Customer ID : "+CustID);
+		String insertCustDataSQL = "INSERT INTO acsms.customer"
+				+ "(cust_id,title,Name,company,street,City,"
+				+ "province,postalcode,country,phone,email)"
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmtInsertCust = connect
 				.prepareStatement(insertCustDataSQL);
 		pstmtInsertCust.setString(1, CustID);
 		pstmtInsertCust.setString(2, objCustomer.getCustTitle());
-		pstmtInsertCust.setString(3, objCustomer.getCustFName());
-		pstmtInsertCust.setString(4, objCustomer.getCustLName());
-		pstmtInsertCust.setString(5, objCustomer.getCustCompany());
-		pstmtInsertCust.setString(6, objCustomer.getCustStreet());
-		pstmtInsertCust.setString(7, objCustomer.getCustCity());
-		pstmtInsertCust.setString(8, objCustomer.getCustProvince());
-		pstmtInsertCust.setString(9, objCustomer.getCustPosCod());
-		pstmtInsertCust.setString(10, objCustomer.getCustCountry());
-		pstmtInsertCust.setString(11, objCustomer.getCustPhone());
-		pstmtInsertCust.setString(12, objCustomer.getCustEmail());
-		/*
-		 * +"\'" + objCustomer.getCustTitle()+"\'," // Title +"\'" +
-		 * objCustomer.getCustFName() +" "+ objCustomer.getCustLName()+"\'," //
-		 * Name +"\'" + objCustomer.getCustCompany()+"\'," // Company +"\'" +
-		 * objCustomer.getCustStreet()+"\'," // Street +"\'" +
-		 * objCustomer.getCustCity()+"\'," // City +"\'" +
-		 * objCustomer.getCustProvince()+"\'," // Province +"\'" +
-		 * objCustomer.getCustPosCod()+"\'," // Postal Code +"\'" +
-		 * objCustomer.getCustCountry()+"\'," // Country +"\'" +
-		 * objCustomer.getCustPhone()+"\'," // Phone +"\'" +
-		 * objCustomer.getCustEmail()+"\'" // Email + ");";
-		 */
-		pstmtInsertCust.executeUpdate(insertCustDataSQL);
+		pstmtInsertCust.setString(3,name);
+		pstmtInsertCust.setString(4, objCustomer.getCustCompany());
+		pstmtInsertCust.setString(5, objCustomer.getCustStreet());
+		pstmtInsertCust.setString(6, objCustomer.getCustCity());
+		pstmtInsertCust.setString(7, objCustomer.getCustProvince());
+		pstmtInsertCust.setString(8, objCustomer.getCustPosCod());
+		pstmtInsertCust.setString(9, objCustomer.getCustCountry());
+		pstmtInsertCust.setString(10, objCustomer.getCustPhone());
+		pstmtInsertCust.setString(11, objCustomer.getCustEmail());
+		pstmtInsertCust.executeUpdate();
 		pstmtInsertCust.close();
 
 		return CustID;

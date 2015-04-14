@@ -61,12 +61,15 @@ public class QuotationDao {
 	    SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
 
 	    Date date = null;
+	    Date shipDate = null;
 	    String str = null;
+	    String shipStr=null;
 
 	    try {
 	        date = inputFormat.parse(quotation.getDatePrepared());
+	        shipDate=inputFormat.parse(quotation.getEstimatedShipDate());
 	        str = outputFormat.format(date);
-
+	        shipStr=outputFormat.format(shipDate);
 	       
 	    } catch (ParseException e) {
 	        e.printStackTrace();
@@ -74,15 +77,47 @@ public class QuotationDao {
 
 		// Database Code
 
-		String Query = "INSERT INTO  acsms . quotation ( ref_no ,date_prepared ,cust_name ,product ,pack_dim ,"
-				+ "pack_weight ,pack_cube ,"
-				+ "date_est_ship ,ship_from ,ship_to ,dest_country ,term_of_pay ,mode_of_transport ,"
-				+ "price_total_sale ,price_special_packing ,"
-				+ "special_price_quoted_by ,price_inland_freight ,inland_price_quoted_by ,inland_unloading ,"
-				+ "inland_Pier_deliver ,inland_terminal_handle ,inland_other ,price1_int_freight ,"
-				+ "price2_int_freight ,int_freight_quoted_by ,Air_fuel_adj ,air_container ,air_other ,"
-				+ "price_insurance ,insurance_all_risk ,insurance_srcc ,insurance_warrisk ,fees_fwd ,fees_consular ,"
-				+ "fees_bank ,fees_other1_name ,fees_other1 ,fees_other2_name ,fees_other2 )VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String Query = "INSERT INTO  acsms . quotation ("
+				+ "ref_no ,"
+				+ "date_prepared ,"
+				+ "cust_name ,"
+				+ "product ,"
+				+ "pack_dim ,"
+				+ "pack_weight ,"
+				+ "pack_cube ,"
+				+ "date_est_ship, "
+				+ "ship_from ,"
+				+ "ship_to ,"
+				+ "dest_country ,"
+				+ "term_of_pay ,"
+				+ "mode_of_transport ,"
+				+ "price_total_sale ,"
+				+ "price_special_packing ,"
+				+ "special_price_quoted_by ,"
+				+ "price_inland_freight ,"
+				+ "inland_price_quoted_by ,"
+				+ "inland_unloading ,"
+				+ "inland_Pier_deliver ,"
+				+ "inland_terminal_handle ,"
+				+ "inland_other ,"
+				+ "price1_int_freight ,"
+				+ "price2_int_freight ,"
+				+ "int_freight_quoted_by ,"
+				+ "Air_fuel_adj ,"
+				+ "air_container ,"
+				+ "air_other ,"
+				+ "price_insurance ,"
+				+ "insurance_all_risk ,"
+				+ "insurance_srcc ,"
+				+ "insurance_warrisk ,"
+				+ "fees_fwd ,fees_consular ,"
+				+ "fees_bank ,"
+				+ "fees_other1_name ,"
+				+ "fees_other1 ,"
+				+ "fees_other2_name ,"
+				+ "fees_other2 ,"
+				+ "totalexportprice)"
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement pstmt = connect.prepareStatement(Query);
@@ -125,11 +160,11 @@ public class QuotationDao {
 			pstmt.setString(37, quotation.getOtherCharge1());
 			pstmt.setString(38, quotation.getOtherCharge2Name());
 			pstmt.setString(39, quotation.getOtherCharge2());
-			
+			pstmt.setString(40, quotation.getTotalExportquotation());
 			pstmt.executeUpdate();
 
 			System.out.println(quotation.getCustomer() + quotation.getProduct()
-					+ quotation.getDatePrepared());
+					+ quotation.getDatePrepared()+quotation.getEstimatedShipDate());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
