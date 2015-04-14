@@ -42,7 +42,7 @@
     							var="UserRole"
     							value="${r.userrole}"/>
     							
-    					<c:redirect url="index.jsp"/>
+    					<c:redirect url="welcome.jsp"/>
     				</c:when>
     				<c:otherwise>
     					<c:redirect url="Login.jsp">

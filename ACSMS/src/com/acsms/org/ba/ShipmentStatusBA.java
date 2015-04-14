@@ -52,7 +52,7 @@ public class ShipmentStatusBA extends HttpServlet {
 			shipStatus = new ShipmentStatusDAO(statusVO);
 			shipStatus.updateStatus();
 			RequestDispatcher submitview = request
-					.getRequestDispatcher("/index.jsp");
+					.getRequestDispatcher("/welcome.jsp");
 			submitview.forward(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

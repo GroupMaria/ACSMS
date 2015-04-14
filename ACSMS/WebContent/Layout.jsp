@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">ACSMS</a>
+                <a class="navbar-brand" href="index.html">ACSMS</a>
             </div>
             <!-- Top Menu Items -->
            <ul class="nav navbar-right top-nav">
@@ -77,7 +77,7 @@
          
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active"><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i> Order Dashboard</a></li>
+                    <li class="active"><a href="welcome.jsp"><i class="fa fa-fw fa-dashboard"></i> Order Dashboard</a></li>
                     <li><a href="Quotation.jsp"><i class="fa fa-fw fa-edit"></i> Quotation</a></li>    
                     <li><a href="NewOrder.jsp"><i class="fa fa-fw fa-edit"></i> Order</a></li>
                     <li><a href="GenerateInvoice.jsp"><i class="fa fa-fw fa-edit"></i>Proforma Invoice</a></li>
