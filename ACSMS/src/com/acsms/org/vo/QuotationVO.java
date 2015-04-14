@@ -42,6 +42,7 @@ public class QuotationVO {
 	private String containerStuffing;
 	private String othersAirFreight;
 	
+	
 
 	private String inlandFreight;
 	private String inlandFreightQuote;

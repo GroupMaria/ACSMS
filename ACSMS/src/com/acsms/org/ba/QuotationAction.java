@@ -1,8 +1,6 @@
 package com.acsms.org.ba;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.acsms.org.dao.OrderDetailsDao;
 import com.acsms.org.dao.QuotationDao;
-import com.acsms.org.vo.OrderDetailsVO;
 import com.acsms.org.vo.QuotationVO;
 
 /**
@@ -83,14 +79,14 @@ public class QuotationAction extends HttpServlet {
 		quotation.setDatePrepared(request.getParameter("DatePrepared"));
 		quotation.setProduct(request.getParameter("product"));
 		quotation.setCustomer(request.getParameter("customer"));
-		quotation.setShippingFrom(request.getParameter("ShippingFrom"));
+		quotation.setShippingFrom(request.getParameter("shippingFrom"));
 		quotation.setDestinationCountry(request
 				.getParameter("destinationCountry"));
 		quotation.setTermsOfPayment(request.getParameter("termsOfPayment"));
 		quotation.setModeofTransport(request.getParameter("modeofTransport"));
 		quotation.setRefNumber(request.getParameter("refNumber"));
 		quotation.setEstimatedShipDate(request
-				.getParameter("EstimatedShipDate"));
+				.getParameter("estimatedShipDate"));
 		quotation.setPackedDimensions(request.getParameter("packedDimensions"));
 		quotation.setShippingTo(request.getParameter("ShippingTo"));
 		quotation.setPackedWeight(request.getParameter("packedWeight"));
@@ -106,12 +102,24 @@ public class QuotationAction extends HttpServlet {
 				.getParameter("inlandFreightQuote"));
 		quotation.setInlandFreightQuotedBy(request
 				.getParameter("inlandFreightQuotedBy"));
+		
+		
+		quotation.setInlandUnloading("Unloading");
+		quotation.setInland_Pier_deliver("PierDelivery");
+		quotation.setInland_terminal_handle("TerminalHandling");
+		quotation.setInland_other("Others");
 		quotation.setInlandFreightothers1(request
-				.getParameter("inlandFreightothers1"));
+				.getParameter("inlandFreightothers"));
+		
+		quotation.setInlandFreightothers1(request.getParameter("InternationalFreightPrice"));
 		quotation.setInternationalFreightQuote1(request
 				.getParameter("InternationalFreightQuote1"));
 		quotation.setInternationalFreightQuotedBy(request
 				.getParameter("InternationalFreightQuotedBy"));
+		
+		
+		
+		
 		quotation.setForwardingFees(request.getParameter("ForwardingFees"));
 		quotation.setConsularPrice(request.getParameter("ConsularPrice"));
 		quotation.setInspectionFees(request.getParameter("InspectionFees"));
@@ -123,7 +131,7 @@ public class QuotationAction extends HttpServlet {
 		quotation.setOtherCharge2Name(request.getParameter("OtherCharge2Name"));
 		quotation.setInlandFreightothers1(request.getParameter("OtherCharge2Name"));
 		//TODO: Should write the logic for the total export value
-		quotation.setInlandFreightothers1(request.getParameter("inlandFreightothers1"));
+		
 		quotation.setTotalExportquotation(request.getParameter("TotalExportquotation"));
 		System.out.println("Total Export Quotation"+quotation.getTotalExportquotation());
 
@@ -131,10 +139,8 @@ public class QuotationAction extends HttpServlet {
 		quoteDao.createNewQuote();
 
 		request.setAttribute("QuoteDetails", quotation);
-
 		RequestDispatcher view = request
-				.getRequestDispatcher("/intermediate.jsp");
-
+				.getRequestDispatcher("/NewOrder.jsp");
 		view.forward(request, response);
 
 	}

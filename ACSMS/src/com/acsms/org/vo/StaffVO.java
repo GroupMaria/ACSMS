@@ -8,6 +8,8 @@ public class StaffVO {
 	private String staffLName;
 	private String staffPhone;
 	private String staffEmail;
+	private String cpassword;
+	private String npassword;
 	private boolean isAdmin;
 	
 	public StaffVO() {
@@ -83,6 +85,24 @@ public class StaffVO {
 
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+
+	
+
+	public String getNpassword() {
+		return npassword;
+	}
+
+	public void setNpassword(String npassword) {
+		this.npassword = npassword;
+	}
+
+	public String getCpassword() {
+		return cpassword;
+	}
+
+	public void setCpassword(String cpassword) {
+		this.cpassword = cpassword;
 	}
 	
 	

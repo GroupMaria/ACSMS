@@ -25,11 +25,31 @@
 </head>
 <body>
 
- <%@include file="Authentication.jsp" %> 
- 
-    <div id="wrapper">
 
-  <%@include file="Layout.jsp" %> 
+ 
+    <div>
+
+       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">ACSMS</a>
+            </div>
+            <!-- Top Menu Items -->
+           <ul class="nav navbar-right top-nav">
+                <li><a href="TrackOrder.jsp"><i class="fa fa-fw fa-dashboard"></i> Track Order Status</a></li>
+                <li>
+                
+                    <a href="Login.jsp"><i class="fa fa-fw fa-power-off"></i> Log in</a>
+                </li>
+                
+            </ul>
+     </nav>
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -37,8 +57,8 @@
             <div class="row" style="height: 560px;">
              
              <form class="form-horizontal" action="OrderClosingBA" method="post">
-              <input type="hidden" name="user" value="staff">
-             <h3>Order Closing</h3><hr/> <br/>
+               <input type="hidden" name="user" value="customer">
+             <h3>Track Order</h3><hr/> <br/>
               <div class="form-group">
     			<label for="inputEmail3" class="col-sm-2 control-label">ORDER ID :</label>
    				    <div class="col-sm-10">

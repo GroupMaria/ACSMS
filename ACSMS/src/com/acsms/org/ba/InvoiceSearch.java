@@ -35,7 +35,7 @@ public class InvoiceSearch extends HttpServlet {
 		ReportingDao dao = new ReportingDao();
 		Report report = dao.getReportData(request.getParameter("invoiceNumber"));
 		if (report == null) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("welcome.jsp");
 			request.setAttribute("error", "Invalid Invoice No");
 			dispatcher.forward(request, response);
 		} else {

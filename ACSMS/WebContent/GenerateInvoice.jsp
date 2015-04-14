@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="utf-8">
@@ -33,19 +36,19 @@
             
             <div class="row" style="height: 560px;">
              
-             <form class="form-horizontal" action="OrderDetailsBA" method="post">
+             <form class="form-horizontal" action="GeneratePDFBA" method="post">
              
-             <h3>Quotatiion Search</h3><hr/> <br/>
+             <h3>Generate Performa Invoice</h3><hr/> <br/>
               <div class="form-group">
-    			<label for="inputEmail3" class="col-sm-2 control-label">Quotatiion ID :</label>
+    			<label for="inputEmail3" class="col-sm-2 control-label">Order ID :</label>
    				    <div class="col-sm-10">
-     			 		<input type="text" class="form-control" id="QuotationId" name="QuotationId" style="width: 213px;">
+     			 		<input type="text" class="form-control" id="orderid" name="orderid" style="width: 213px;">
     				</div>
  				 </div>
   
                <div class="form-group">
                   <div class="col-sm-offset-2 col-sm-10">
-                   &nbsp;   <input type="submit" value="Search" class="form-control btn-primary" id="TotalExportquotation" name="TotalExportquotation" style="width: 141px;">
+                   &nbsp;   <input type="submit" value="Generate Performa Invoice" class="form-control btn-primary" id="AWBCertificate" name="AWBCertificate" style="width: 141px;">
                   </div>
               </div>
   

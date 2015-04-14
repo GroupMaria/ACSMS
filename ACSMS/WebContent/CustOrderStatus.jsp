@@ -44,11 +44,30 @@ dt {
 </head>
 <body>
 
-	<%@include file="Authentication.jsp"%>
+	    <div>
 
-	<div id="wrapper">
+       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">ACSMS</a>
+            </div>
+            <!-- Top Menu Items -->
+           <ul class="nav navbar-right top-nav">
+                <li><a href="TrackOrder.jsp"><i class="fa fa-fw fa-dashboard"></i> Track Order Status</a></li>
+                <li>
+                
+                    <a href="Login.jsp"><i class="fa fa-fw fa-power-off"></i> Log in</a>
+                </li>
+                
+            </ul>
+     </nav>
 
-		<%@include file="Layout.jsp"%>
 		<div id="page-wrapper">
 
 			<div class="container-fluid">
@@ -79,13 +98,7 @@ dt {
 								<td colspan="2" align="center"><b>Order ID: <%=OrderDetails.getorderid()%></b>
 								</td>
 							</tr>
-							<tr>
-
-								<th>
-								<c:set var="status" scope="session" value="<%=OrderDetails.getStatusId()%>"/>
-								<c:if test="${status eq 8}"><c:out value="The Following Order is closed"/></c:if>
-								<c:if test="${status ne 8}"><c:out value="The Following Order cannot be closed as the Shipment is not received yet!"/></c:if></th>
-							</tr>
+		
 							<%
 								for (int i = 0; i < statuslist.size(); i += 1) {
 							%>
@@ -114,6 +127,11 @@ dt {
 	</div>
 
 
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/plugins/morris/raphael.min.js"></script>
+    <script src="resources/js/plugins/morris/morris.min.js"></script>
+    <script src="resources/js/plugins/morris/morris-data.js"></script>
 
 
 </body>

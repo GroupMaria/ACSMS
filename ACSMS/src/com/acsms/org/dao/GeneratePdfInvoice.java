@@ -1,7 +1,13 @@
 package com.acsms.org.dao;
 import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.Date;
 
+import com.acsms.org.vo.OrderDetailsVO;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
@@ -14,9 +20,87 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 
-public class GeneratePdf {
+public class GeneratePdfInvoice {
+	
+	private Connection connect;
+	ConnectionPool invoicePool = new ConnectionPool();
+	private OrderDetailsVO invoiceVO;
 
-	public static void main(String[] args) {
+	
+	public GeneratePdfInvoice(OrderDetailsVO invoiceVO) throws Exception {
+		
+		invoicePool.setConnect(connect);
+		connect=invoicePool.getConnect();		
+		this.invoiceVO=invoiceVO;
+	}
+
+
+	public void searchOrder(String orderid) throws SQLException {
+		System.out.println("The corresponding Order ID:"+orderid);
+		
+		String SearchDataSQL = "Select * from acsms.order where orderid = ?";
+		PreparedStatement pstmt = connect.prepareStatement(SearchDataSQL);
+		pstmt.setString(1, orderid);
+		ResultSet rs=pstmt.executeQuery();
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int columnsNumber = rsmd.getColumnCount();
+		while (rs.next()) {
+			for (int i = 1; i <= columnsNumber; i++) {
+		
+				 if(rsmd.getColumnName(i).trim().contains("quotationid")){
+					 String quoteID=rs.getString(i);
+					 System.out.println("The Quotation ID: "+quoteID);
+					 searchQuote(quoteID);
+				 }
+			}
+		}
+	}
+
+	private void searchQuote(String quotationid) throws SQLException {
+		String SearchQuoteDataSQL = "Select * from acsms.quotation where ref_no = ?";
+		PreparedStatement pstmtQuote = connect
+				.prepareStatement(SearchQuoteDataSQL);
+		pstmtQuote.setString(1, quotationid);
+		ResultSet rsQuote = pstmtQuote.executeQuery();
+		// Move cursor to the first row.
+		System.out.println("Moving cursor to the first row...");
+		rsQuote.first();
+		// Extract data from result set
+		System.out.println("Displaying record...");
+		// Retrieve by column name
+		String refNumber = rsQuote.getString("ref_no");
+		invoiceVO.setRefNumber(refNumber);
+		String DatePrepared = rsQuote.getString("date_prepared");
+		invoiceVO.setDatePrepared(DatePrepared);
+		String product = rsQuote.getString("product");
+		invoiceVO.setProduct(product);
+		String customer = rsQuote.getString("cust_name");
+		invoiceVO.setCustomer(customer);
+		String shippingFrom = rsQuote.getString("ship_from");
+		invoiceVO.setShippingFrom(shippingFrom);
+		String destinationCountry = rsQuote.getString("dest_country");
+		invoiceVO.setDestinationCountry(destinationCountry);
+		String termsOfPayment = rsQuote.getString("term_of_pay");
+		invoiceVO.setTermsOfPayment(termsOfPayment);
+		String modeofTransport = rsQuote.getString("mode_of_transport");
+		invoiceVO.setModeofTransport(modeofTransport);
+		String estimatedShipDate = rsQuote.getString("date_est_ship");
+		invoiceVO.setEstimatedShipDate(estimatedShipDate);
+		String packedDimensions = rsQuote.getString("pack_dim");
+		invoiceVO.setPackedDimensions(packedDimensions);
+		String ShippingTo = rsQuote.getString("ship_to");
+		invoiceVO.setShippingTo(ShippingTo);
+		String packedWeight = rsQuote.getString("pack_weight");
+		invoiceVO.setPackedWeight(packedWeight);
+		String packedCube = rsQuote.getString("pack_cube");
+		invoiceVO.setPackedCube(packedCube);
+		pstmtQuote.close();
+		
+		generatePDFINvoice(invoiceVO);
+	}
+
+
+	public void generatePDFINvoice(OrderDetailsVO invoiceVO) {
 		// TODO Auto-generated method stub
 		Document document = new Document();
 
@@ -28,16 +112,16 @@ public class GeneratePdf {
             Font font1 = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
             Font font2 = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
             Paragraph paragraph = new Paragraph();            
-            Chunk chunk = new Chunk("[Your Company Name]");
+            Chunk chunk = new Chunk("Air Cargo Shipping Management System");
             chunk.setFont(font1);
-            Chunk chunk7 = new Chunk("                                                  INVOICE");
+            Chunk chunk7 = new Chunk("           INVOICE");
             chunk7.setFont(font1);
-            Chunk chunk1 = new Chunk("\n[Your Company Slogan]");
-            Chunk chunk2 = new Chunk("\n[Address]");
-            Chunk chunk6 = new Chunk("                                                                                                      INVOICE No[100]");
+            Chunk chunk1 = new Chunk("\nACSMS");
+            Chunk chunk2 = new Chunk("\n941 Progress Avenue");
+            Chunk chunk6 = new Chunk("                                                                                                    INVOICE No[100]");
             chunk6.setFont(font2);            
-            Chunk chunk3 = new Chunk("\n[City, Province Postal Code]");
-            Chunk chunk4 = new Chunk("                                                                     DATE: "+ new Date().toString());
+            Chunk chunk3 = new Chunk("\nToronto,ON M1G 3T8");
+            Chunk chunk4 = new Chunk("                                                                   DATE: "+ new Date().toString());
             chunk4.setFont(font2);
             Chunk chunk5 = new Chunk("\n");            
             paragraph.add(chunk);
@@ -104,7 +188,7 @@ public class GeneratePdf {
             tableName.setHorizontalAlignment (Element.ALIGN_CENTER);
             PdfPCell qty = new PdfPCell(new Paragraph("QUANTITY"));
             PdfPCell des = new PdfPCell(new Paragraph("DESCRIPTION"));
-            PdfPCell up = new PdfPCell(new Paragraph("UNIT PRICE"));            
+            PdfPCell up = new PdfPCell(new Paragraph("DIMENSIONS"));            
             PdfPCell amt = new PdfPCell(new Paragraph("AMOUNT"));
             table2.addCell(tableName);
             table2.addCell(qty);
@@ -115,22 +199,22 @@ public class GeneratePdf {
             //table2.addCell(brAddr);
             table2.addCell(amt);   
             
-            PdfPCell qty1 = new PdfPCell(new Paragraph(" "));
-            PdfPCell des1 = new PdfPCell(new Paragraph(" "));
-            PdfPCell up1 = new PdfPCell(new Paragraph(" "));
+            PdfPCell qty1 = new PdfPCell(new Paragraph(invoiceVO.getPackedWeight()));
+            PdfPCell des1 = new PdfPCell(new Paragraph(invoiceVO.getProduct()));
+            PdfPCell up1 = new PdfPCell(new Paragraph("Packed Dimensions: "+invoiceVO.getPackedCube() +"Packed Cudbe:"+invoiceVO.getPackedDimensions()));
             //PdfPCell bankName1 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brCode1 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brAddr1 = new PdfPCell(new Paragraph(" "));
-            PdfPCell amt1 = new PdfPCell(new Paragraph(" "));
+            PdfPCell amt1 = new PdfPCell(new Paragraph(invoiceVO.getTotalExportquotation()));
             
-            PdfPCell qty2 = new PdfPCell(new Paragraph(" "));
+            PdfPCell qty2 = new PdfPCell(new Paragraph("Test "));
             qty2.setBorder(Rectangle.NO_BORDER);
-            PdfPCell des2 = new PdfPCell(new Paragraph(" "));
-            PdfPCell up2 = new PdfPCell(new Paragraph(" "));
+            PdfPCell des2 = new PdfPCell(new Paragraph(" Test"));
+            PdfPCell up2 = new PdfPCell(new Paragraph("Test "));
             //PdfPCell bankName2 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brCode2 = new PdfPCell(new Paragraph(" "));
             //PdfPCell brAddr2 = new PdfPCell(new Paragraph(" "));
-            PdfPCell amt2 = new PdfPCell(new Paragraph(" "));
+            PdfPCell amt2 = new PdfPCell(new Paragraph(invoiceVO.getTotalExportquotation()));
             
             PdfPTable nestedTable = new PdfPTable(1);
             
@@ -232,5 +316,6 @@ public class GeneratePdf {
         }
     
 	}
+
 
 }

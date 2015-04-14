@@ -2,6 +2,8 @@ package com.acsms.org.ba;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import com.acsms.org.vo.CustomerVO;
 import com.acsms.org.vo.StaffVO;
 import com.sun.org.apache.xml.internal.resolver.helpers.Debug;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -49,7 +52,7 @@ public class StaffBA extends HttpServlet {
 		String Phone = request.getParameter("txtPhone");
 		String Email = request.getParameter("txtEmail");
 		if (request.getParameter("isAdmin") != null) {
-			isAdmin = request.getParameter("isAdmin").equals("on");
+			isAdmin = request.getParameter("isAdmin").equals("true");
 		}
 
 		StaffVO staff = new StaffVO(staffId, Title, FName, LName, Phone, Email,
@@ -63,6 +66,24 @@ public class StaffBA extends HttpServlet {
 		}
 
 		String Action = request.getParameter("toaction");
+
+		
+		
+		if (Action.equals("ListStaffs")) {
+			
+			try {
+				
+		   List<StaffVO> users=new ArrayList<StaffVO>();
+		   users =new ArrayList<StaffVO>(objstaffDao.GetallStaffs());
+
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			String StrStaff = constructJSONArray(users);
+			out.println(StrStaff);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 		if (Action.equals("Search")) {
 			
@@ -125,6 +146,24 @@ public class StaffBA extends HttpServlet {
 		jsStaff.put("isAdmin", staff.isAdmin());
 
 		return jsStaff.toString();
+	}
+	private String constructJSONArray(List<StaffVO> staffs) {
+
+		JSONArray staffarray = new JSONArray();
+		
+		for(StaffVO staff: staffs)
+		{
+			JSONObject jsStaff = new JSONObject();
+			jsStaff.put("staffId", staff.getStaffid());
+			jsStaff.put("combTitle", staff.getstaffTitle());
+			jsStaff.put("txtFName", staff.getstaffFName());
+			jsStaff.put("txtLName", staff.getstaffLName());
+			jsStaff.put("txtPhone", staff.getstaffPhone());
+			jsStaff.put("txtEmail", staff.getstaffEmail());
+			jsStaff.put("isAdmin", staff.isAdmin());
+			staffarray.put(jsStaff);
+		}
+		return staffarray.toString();
 	}
 
 }

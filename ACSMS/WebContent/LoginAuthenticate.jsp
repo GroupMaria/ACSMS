@@ -23,8 +23,8 @@
     						url="jdbc:mysql://localhost/acsms"
     						user="root" password="admin"/>
     		<s:query dataSource="${ds}" var="selectQ">
-    			SELECT COUNT(*) AS kount FROM user 
-    			WHERE username= ? AND password= ?
+    			SELECT username,userid as userid,max(role) AS userrole, COUNT(*) AS kount FROM user 
+    			WHERE email= ? AND password= ?
     			<sql:param value="${param.username}"/>
     			<sql:param value="${param.password}"/>
     		</s:query>
@@ -33,8 +33,16 @@
     				<c:when test="${r.kount gt 0}">
     					<c:set scope="session" 
     							var="loginUser"
-    							value="${param.username}"/>
-    					<c:redirect url="index.jsp"/>
+    							value="${r.userid}"/>
+    					<c:set scope="session" 
+    							var="loginUserName"
+    							value="${r.username}"/>
+    							
+    				   	<c:set scope="session" 
+    							var="UserRole"
+    							value="${r.userrole}"/>
+    							
+    					<c:redirect url="welcome.jsp"/>
     				</c:when>
     				<c:otherwise>
     					<c:redirect url="Login.jsp">
