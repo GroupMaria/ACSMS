@@ -1,10 +1,14 @@
 package com.acsms.org.vo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OrderClosingVO {
 
 	private String orderid;
 	private int StatusId;
 	private String message;
+	private List<String> status=new ArrayList<String>();
 
 	public OrderClosingVO() {
 		super();
@@ -43,6 +47,14 @@ public class OrderClosingVO {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public List<String> getStatus() {
+		return status;
+	}
+
+	public void setStatus(List<String> status) {
+		this.status = status;
 	}
 
 }

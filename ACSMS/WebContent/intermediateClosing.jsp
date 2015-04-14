@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ 
+ <%@page import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="com.acsms.org.vo.OrderClosingVO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -34,6 +36,8 @@
     
     <style> 
     dt{padding-bottom: 10px;}
+
+	
     </style>
     
 </head>
@@ -54,23 +58,37 @@
              
                  <% OrderClosingVO OrderDetails = (OrderClosingVO) request.getAttribute("OrderClosingDetails");%>
 
-                 <h3>Order Details &nbsp;   
-</h3>          <hr/> <br/>
+              
                  
-                 <table><tr>
-                 <td>
-                 The Order for the Quotation (<%= OrderDetails.getorderid()%>) is already generated.
-                 
-                 <dl class="dl-horizontal">
-                 <dt>The Current Order Status  : </dt> <dd> <%= OrderDetails.getStatusId() %> </dd>
-                 <dt>Following States are Completed : </dt> <dd><%= OrderDetails.getMessage() %></dd>
-                 </dl>
-                 </td>
-                 <td>
-                 
-                 
-                 </td>
-                 </tr></table>
+                
+     <h3>Order Status</h3> 
+     
+		<% @SuppressWarnings("unchecked")
+		List<String> statuslist = (List<String>)OrderDetails.getStatus();
+		%>
+		
+		<br/>
+		
+		<table class='table'>
+			<tr>
+				<td colspan="2" align="center"><b>Order ID: <%= OrderDetails.getorderid()%></b>
+				</td>
+			</tr>
+			<tr>
+	
+				<th>Status</th>
+			</tr>
+			<% for (int i=0;i<statuslist.size();i+=1)	{%>
+			<tr>
+				
+				<td><%=statuslist.get(i)%></td>
+			</tr>
+			<% } %>
+	  	</table>
+                
+                
+                
+                
                 
                   
             

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.acsms.org.vo.OrderClosingVO;
 
@@ -67,10 +69,13 @@ public class OrderClosingDAO {
 		PreparedStatement pstmt = connect.prepareStatement(displayStatusData);
 		ResultSet rs=pstmt.executeQuery();
 		String message = "";
+		List<String> status=new ArrayList<String>();
 		while (rs.next()) {
 			   	message+=rs.getString("StatusDesc")+",";
+			    status.add(rs.getString("StatusDesc"));
 			        if (Integer.parseInt(rs.getString("StatusId")) == closeOrder.getStatusId()){
 			        	closeOrder.setMessage(message);
+			        	closeOrder.setStatus(status);
 			        	System.out.println(message);
 			        	break;
 			        }
