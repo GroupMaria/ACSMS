@@ -24,7 +24,7 @@
     						user="root" password="admin"/>
     		<s:query dataSource="${ds}" var="selectQ">
     			SELECT username,userid as userid,max(role) AS userrole, COUNT(*) AS kount FROM user 
-    			WHERE username= ? AND password= ?
+    			WHERE email= ? AND password= ?
     			<sql:param value="${param.username}"/>
     			<sql:param value="${param.password}"/>
     		</s:query>
